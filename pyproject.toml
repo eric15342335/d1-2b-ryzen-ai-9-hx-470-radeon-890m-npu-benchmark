@@ -1,16 +1,31 @@
 [project]
 name = "d1-2b-igpu-npu-perf-bench"
 version = "0.1.0"
+description = "Reproducible d1-2B decision benchmarks on CPU, Radeon 890M iGPU and Ryzen AI NPU"
 requires-python = ">=3.13"
 dependencies = [
     "huggingface-hub>=2.4.0",
+    "loguru>=0.7",
     "onnx>=1.23.2",
     "onnxruntime-directml==1.25.0.dev20260125001",
     "pillow>=13.0.0",
+    "rich>=15",
     "torch>=2.15.0",
     "torchvision>=0.29.2",
     "transformers>=5.19",
+    "typer>=0.29",
 ]
+
+[project.scripts]
+d1bench = "d1bench.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "d1bench"
+module-root = ""
 
 [[tool.uv.index]]
 name = "pytorch-cpu"
@@ -22,7 +37,53 @@ torch = { index = "pytorch-cpu" }
 torchvision = { index = "pytorch-cpu" }
 onnxruntime-directml = { index = "ort-nightly" }
 
+[dependency-groups]
+dev = [
+    "mypy>=2.4.1",
+    "pylint>=4.1.3",
+    "pyscn>=1.33.2",
+    "ruff>=0.17.5",
+]
+
 [[tool.uv.index]]
 name = "ort-nightly"
 url = "https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple/"
 explicit = true
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+include = ["d1bench/**/*.py"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "COM812",  # conflicts with the formatter
+    "CPY001",  # no copyright headers in this workspace
+    "D203",    # incompatible with D211
+    "D213",    # incompatible with D212
+    "FBT001", "FBT002",  # Typer options are boolean parameters by design
+    "S101",    # asserts check recorded measurements, not user input
+    "T201",    # CLI
+]
+
+[tool.ruff.lint.per-file-ignores]
+"d1bench/run_*.py" = ["PLR0913", "PLR0917"]  # Typer turns main()'s parameters into the runner's CLI
+
+[tool.ruff.lint.isort]
+known-first-party = ["d1bench"]
+
+[tool.mypy]
+strict = true
+files = ["d1bench"]
+
+[[tool.mypy.overrides]]
+module = ["onnxruntime.*", "onnxruntime_ep_webgpu", "liquidonnx.*", "d1npu2", "transformers", "torch"]
+ignore_missing_imports = true
+
+[tool.pylint.main]
+py-version = "3.13"
+max-line-length = 120
+max-attributes = 12
+disable = ["too-many-locals", "too-many-arguments", "too-many-positional-arguments", "import-error"]
+
