@@ -1,0 +1,71 @@
+2026-11-13 01:15:57.3583225 [W:onnxruntime:Default, onnxruntime_pybind_module.cc:45 onnxruntime::python::CreateOrtEnv] Init provider bridge failed.
+[01:16:06 INFO    winml.modelkit.commands.analyze] Analyzing model: models\d1-2B-ONNX\onnx\decoder.onnx
+[01:16:06 INFO    winml.modelkit.commands.analyze] Execution targets: VitisAIExecutionProvider (NPU)
+[01:16:06 INFO    winml.modelkit.analyze.core.output_aggregator] Initialized OutputAggregator
+[01:16:06 INFO    winml.modelkit.analyze.analyzer] Initialized ONNXStaticAnalyzer with config: AnalyzerConfig(enable_information=False, pattern_detection_timeout=300, max_memory_mb=2048, rule_database_path=None)
+
+═══════════════════════════════════════════════════════════════════════════════
+═
+📊 ANALYSIS PROGRESS
+═══════════════════════════════════════════════════════════════════════════════
+═
+   📦 Model: decoder.onnx
+   🔧 Opset: 21  Producer: liquidonnx
+   📋 Operators: 801 total, 28 unique types
+
+[11/13/26 01:16:06] INFO     Starting analysis for model:                      
+                             models\d1-2B-ONNX\onnx\decoder.onnx               
+                    INFO     Target: VitisAIExecutionProvider on NPU           
+                    INFO     Analyzing model from ModelProto                   
+                    INFO     Using device: NPU                                 
+                    INFO     Loading model and extracting patterns...          
+                    INFO     Using ONNX model from memory                      
+                    INFO     Successfully loaded ONNX model: 801 nodes, opset  
+                             version 21                                        
+                    INFO     Initialized PatternExtractor for model:           
+                             models\d1-2B-ONNX\onnx\decoder.onnx               
+                    INFO     Checking runtime support for                      
+                             VitisAIExecutionProvider...                       
+                    INFO     Generating pattern analysis summary               
+                    INFO     Loading default configuration from                
+                             .\.venv-winml\Lib\site-packa
+                             ges\winml\modelkit\pattern\rules\default.json     
+                    INFO     Unified config loaded for IHV=default: 1 HTP      
+                             patterns, 10 skeleton patterns                    
+───────────────────────────────────────────────────────────────────────────────
+─
+💻 EP 1: VitisAIExecutionProvider on NPU
+───────────────────────────────────────────────────────────────────────────────
+─
+                    INFO     Skip pattern parquet lookup for invalid EP/device 
+                             pair: VitisAIExecutionProvider_NPU                
+   📊 PATTERN CHECK — VitisAIExecutionProvider (NPU)  Skipped - no rule data   
+ Pattern                                                                       
+    (none)                                                                     
+
+Coverage OP(0)=(none)
+
+      📊 OP CHECK — VitisAIExecutionProvider (NPU)  Skipped - no rule data     
+                    INFO     Skipping runtime rule checks for                  
+                             VitisAIExecutionProvider on NPU: target is marked 
+                             invalid in available providers config             
+                    INFO     Aggregating results...                            
+                    INFO     Aggregating analysis results for model:           
+                             models\d1-2B-ONNX\onnx\decoder.onnx               
+                    WARNING  No check results for EP VitisAIExecutionProvider  
+                    INFO     Aggregation complete: 1 IHV results, pattern      
+                             counts by EP: {'VitisAIExecutionProvider': 0}     
+                    INFO     Analysis complete                                 
+
+═══════════════════════════════════════════════════════════════════════════════
+═
+📈 ANALYSIS SUMMARY (Analyze total: VitisAIExecutionProvider (NPU), 0.12s)
+═══════════════════════════════════════════════════════════════════════════════
+═
+   🔵 VitisAIExecutionProvider (NPU):
+      Op check skipped — no rule data, no patterns
+
+  S/P/U/Unk = Supported/Partial/Unsupported/Unknown  ██ supported  ██ partial  
+██ unsupported  ██ unknown
+
+[01:16:06 INFO    winml.modelkit.commands.analyze] JSON results saved to: results\npu-fp32-analysis.json

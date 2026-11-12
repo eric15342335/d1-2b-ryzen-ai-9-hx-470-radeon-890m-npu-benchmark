@@ -1,0 +1,60 @@
+{
+  "analysis_timestamp": "2026-11-13T01:16:06.951663",
+  "metadata": {
+    "model_path": "models\\d1-2B-ONNX\\onnx\\decoder.onnx",
+    "opset_version": 21,
+    "producer_name": "liquidonnx",
+    "total_operators": 801,
+    "operator_counts": {
+      "ReduceSum": 1,
+      "Sub": 1,
+      "Cast": 3,
+      "Shape": 19,
+      "Gather": 16,
+      "Concat": 15,
+      "Expand": 14,
+      "Identity": 24,
+      "Unsqueeze": 17,
+      "Equal": 5,
+      "Or": 2,
+      "And": 1,
+      "Where": 1,
+      "Reshape": 108,
+      "NonZero": 2,
+      "Transpose": 29,
+      "Slice": 28,
+      "ScatterND": 2,
+      "SimplifiedLayerNormalization": 119,
+      "MatMul": 154,
+      "Split": 13,
+      "Mul": 98,
+      "Conv": 13,
+      "Add": 48,
+      "Sigmoid": 35,
+      "RotaryEmbedding": 22,
+      "MultiHeadAttention": 6,
+      "GroupQueryAttention": 5
+    },
+    "unique_operator_types": 28,
+    "detected_pattern_count": {
+      "VitisAIExecutionProvider": {}
+    }
+  },
+  "results": [
+    {
+      "ihv_type": "AMD",
+      "ep_type": "VitisAIExecutionProvider",
+      "device_type": "NPU",
+      "runtime_support": false,
+      "has_errors": false,
+      "has_warnings": false,
+      "classification": {
+        "supported": [],
+        "partial": [],
+        "unsupported": [],
+        "unknown": []
+      },
+      "information": []
+    }
+  ]
+}

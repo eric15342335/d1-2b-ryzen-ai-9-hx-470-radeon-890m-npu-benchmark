@@ -1,0 +1,4 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I20261113 01:18:54.253360 60020 register_dynamicdispatch.cpp:49] Running DynamicDispatchOpRegister::register_ops
+I20261113 01:18:54.253360 60020 register_castavx.cpp:48] Running CastAvxOpRegister::register_ops
+[('CPUExecutionProvider', 4130, {'Description': 'AMD Ryzen AI 9 HX 470 w/ Radeon 890M            '}), ('VitisAIExecutionProvider', 4130, {'Description': 'NPU Compute Accelerator Device', 'LUID': '86817'})]

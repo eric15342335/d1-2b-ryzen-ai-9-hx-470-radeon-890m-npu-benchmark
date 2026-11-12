@@ -1,0 +1,27 @@
+error: No solution found when resolving dependencies
+  cause: Because all of:
+             vllm<=0.3.1
+             vllm==0.3.3
+             vllm>=0.4.1,<=0.14.1
+          have no usable wheels and only the following versions of vllm are available:
+             vllm<=0.3.1
+             vllm==0.3.2
+             vllm==0.3.3
+             vllm>=0.4.0,<=0.4.0.post1
+             vllm>=0.4.1
+         we can conclude that all of:
+             vllm<0.3.2
+             vllm>0.3.2,<0.4.0
+             vllm>0.4.0.post1,<=0.14.1
+          cannot be used.
+         And because all of:
+             vllm==0.3.2
+             vllm>=0.4.0,<=0.4.0.post1
+          have no wheels with a matching Python ABI tag (e.g., `cp313`) and vllm>=0.15.0,<=0.15.1 has no wheels with a matching platform tag (e.g., `win_amd64`), we can conclude that vllm>=0.15.0,<=0.15.1 cannot be used.
+         And because vllm>=0.16.0 has no usable wheels and you require vllm, we can conclude that your requirements are unsatisfiable.
+
+hint: Wheels are required for `vllm` because building from source is disabled for all packages (i.e., with `--no-build`)
+
+hint: You require CPython 3.13 (`cp313`), but we only found wheels for `vllm` (v0.4.0.post1) with the following Python ABI tags: `cp38`, `cp39`, `cp310`, `cp311`
+
+hint: Wheels are available for `vllm` (v0.15.1) on the following platforms: `manylinux_2_31_aarch64`, `manylinux_2_31_x86_64`

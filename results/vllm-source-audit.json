@@ -1,0 +1,8 @@
+{
+  "registry_source": "https://github.com/vllm-project/vllm/blob/a7933519764efd3b51782ebd7df4362c527e4a4c/vllm/model_executor/models/registry.py",
+  "commit": "a7933519764efd3b51782ebd7df4362c527e4a4c",
+  "model_architecture": "D1Model",
+  "registered": false,
+  "native_windows_wheel_probe": "results/vllm-windows-wheel-probe.log",
+  "registry_sha256": "b3cd6d10cd622a217b51c8a174c970b26d7a33c98d2666e9cd2bd9a56806fd77"
+}

@@ -1,0 +1,20 @@
+.\.cache\ort-modern\onnxruntime\capi\onnxruntime_inference_collection.py:197: UserWarning: Specified provider 'DmlExecutionProvider' is not in available provider names.Available providers: 'AzureExecutionProvider, CPUExecutionProvider'
+  warnings.warn(
+Traceback (most recent call last):
+  File ".\benchmark.py", line 126, in <module>
+    main()
+    ~~~~^^
+  File ".\benchmark.py", line 75, in main
+    model = d1.load(ROOT / "models/d1-2B-ONNX", args.precision, "cpu")
+  File ".\.cache\liquidonnx\src\liquidonnx\d1\session.py", line 107, in load
+    return engine_class(host_code(model_dir))(model_dir, precision, ep, tf32, set_size)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ".\.cache\liquidonnx\src\liquidonnx\d1\session.py", line 138, in __init__
+    self.load_sessions(precision, ep or default_ep(), tf32)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ".\.cache\liquidonnx\src\liquidonnx\d1\session.py", line 147, in load_sessions
+    role: load_session(onnx_dir / files[role], ep=ep, tf32=tf32)
+          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ".\benchmark.py", line 68, in load_session
+    raise RuntimeError(f"Requested {expected} missing: {value.get_providers()}")
+RuntimeError: Requested DmlExecutionProvider missing: ['CPUExecutionProvider']

@@ -1,0 +1,156 @@
+{
+  "profile": "results\\dml-q4-profile-decoder_q4_2026-11-13_01-01-12_837.json",
+  "status": "failed inference; partial execution only",
+  "events": [
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "MemcpyFromHost",
+      "count": 6
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "Reshape",
+      "count": 13
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "Equal",
+      "count": 5
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "NonZero",
+      "count": 2
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "Transpose",
+      "count": 8
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "Shape",
+      "count": 7
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "Slice",
+      "count": 4
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "MemcpyToHost",
+      "count": 4
+    },
+    {
+      "provider": "CPUExecutionProvider",
+      "op": "GatherBlockQuantized",
+      "count": 1
+    },
+    {
+      "provider": "CPUExecutionProvider",
+      "op": "ScatterND",
+      "count": 2
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "SimplifiedLayerNormalization",
+      "count": 11
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "MatMulNBits",
+      "count": 13
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "Split",
+      "count": 2
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "Mul",
+      "count": 6
+    },
+    {
+      "provider": "CPUExecutionProvider",
+      "op": "Concat",
+      "count": 1
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "Expand",
+      "count": 3
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "Concat",
+      "count": 2
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "Conv",
+      "count": 2
+    },
+    {
+      "provider": "CPUExecutionProvider",
+      "op": "Gather",
+      "count": 2
+    },
+    {
+      "provider": "CPUExecutionProvider",
+      "op": "Mul",
+      "count": 2
+    },
+    {
+      "provider": "CPUExecutionProvider",
+      "op": "Unsqueeze",
+      "count": 2
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "Add",
+      "count": 4
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "QuickGelu",
+      "count": 2
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "RotaryEmbedding",
+      "count": 2
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "Unsqueeze",
+      "count": 4
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "Or",
+      "count": 2
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "Cast",
+      "count": 1
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "And",
+      "count": 1
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "Where",
+      "count": 1
+    },
+    {
+      "provider": "DmlExecutionProvider",
+      "op": "MultiHeadAttention",
+      "count": 1
+    }
+  ]
+}
