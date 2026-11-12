@@ -1,0 +1,311 @@
+{
+  "provider": "cpu",
+  "precision": "q4",
+  "ort_version": "1.31.1",
+  "threads": 4,
+  "model_revision": "2fd61486312020c30a1e3aa5aa677424672b2b37",
+  "runtime_revision": "26857c2e4d12381c6c630e7f7daf00bb3589f721",
+  "load_seconds": 7.956129300000612,
+  "profiling": true,
+  "warmup": 3,
+  "workloads": [
+    {
+      "name": "ticket",
+      "state": "I was charged twice and my parcel never arrived. Please refund one charge.",
+      "questions": {
+        "refund": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a refund?"
+        },
+        "team": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "billing": "Charges, refunds, invoices",
+            "shipping": "Delivery and parcels",
+            "technical": "App or site faults"
+          }
+        },
+        "urgency": {
+          "type": "score",
+          "instructions": "How urgent is this ticket?",
+          "criteria": [
+            "low",
+            "medium",
+            "high"
+          ]
+        }
+      },
+      "fixture_sha256": "142b7e5392b3632878fa16f81bf4cb99a21d16b5d23879fe7d7c7d87fe6231fc",
+      "first_ms": 1486.2986999942223,
+      "timings_ms": [],
+      "output": {
+        "answers": {
+          "refund": {
+            "type": "noul",
+            "noul": 0.9979776690834783
+          },
+          "team": {
+            "type": "choice",
+            "choice": "billing",
+            "confidence": 0.6627344986938473,
+            "probabilities": {
+              "billing": 0.6627344986938473,
+              "shipping": 0.26734354051204895,
+              "technical": 0.06992196079410366
+            }
+          },
+          "urgency": {
+            "type": "score",
+            "score": 1.0,
+            "confidence": 0.6442213211797749,
+            "probabilities": {
+              "0": 0.23855735401875103,
+              "1": 0.6442213211797749,
+              "2": 0.1172213248014741
+            },
+            "legend": {
+              "0": "low",
+              "1": "medium",
+              "2": "high"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 161,
+          "output_tokens": 0
+        }
+      }
+    },
+    {
+      "name": "long-ticket",
+      "state": "I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. ",
+      "questions": {
+        "refund": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a refund?"
+        },
+        "team": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "billing": "Charges, refunds, invoices",
+            "shipping": "Delivery and parcels",
+            "technical": "App or site faults"
+          }
+        },
+        "urgency": {
+          "type": "score",
+          "instructions": "How urgent is this ticket?",
+          "criteria": [
+            "low",
+            "medium",
+            "high"
+          ]
+        }
+      },
+      "fixture_sha256": "142b7e5392b3632878fa16f81bf4cb99a21d16b5d23879fe7d7c7d87fe6231fc",
+      "first_ms": 13463.6496000021,
+      "timings_ms": [],
+      "output": {
+        "answers": {
+          "refund": {
+            "type": "noul",
+            "noul": 0.9983412259667842
+          },
+          "team": {
+            "type": "choice",
+            "choice": "billing",
+            "confidence": 0.5247250115657484,
+            "probabilities": {
+              "billing": 0.5247250115657484,
+              "shipping": 0.44712815944218215,
+              "technical": 0.028146828992069446
+            }
+          },
+          "urgency": {
+            "type": "score",
+            "score": 0.0,
+            "confidence": 0.6026759834940102,
+            "probabilities": {
+              "0": 0.6026759834940102,
+              "1": 0.30427685643877833,
+              "2": 0.09304716006721166
+            },
+            "legend": {
+              "0": "low",
+              "1": "medium",
+              "2": "high"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 1559,
+          "output_tokens": 0
+        }
+      }
+    }
+  ],
+  "set_size": 1,
+  "profiles": {
+    "decoder_q4": {
+      "path": ".\\results\\cpu-q4-profile-ticket-common-set1-decoder_q4_2026-11-13_01-33-07_062.json",
+      "executed_nodes": [
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Reshape",
+          "events": 642
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Equal",
+          "events": 30
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "NonZero",
+          "events": 12
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Transpose",
+          "events": 246
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Shape",
+          "events": 114
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Slice",
+          "events": 168
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "GatherBlockQuantized",
+          "events": 6
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "ScatterND",
+          "events": 12
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "SimplifiedLayerNormalization",
+          "events": 714
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "MatMulNBits",
+          "events": 924
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Split",
+          "events": 78
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Mul",
+          "events": 444
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Concat",
+          "events": 90
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Expand",
+          "events": 84
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Conv",
+          "events": 78
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Gather",
+          "events": 90
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Unsqueeze",
+          "events": 102
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Add",
+          "events": 288
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "QuickGelu",
+          "events": 144
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "RotaryEmbedding",
+          "events": 132
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Or",
+          "events": 12
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Cast",
+          "events": 18
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "And",
+          "events": 6
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Where",
+          "events": 6
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "MultiHeadAttention",
+          "events": 36
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Sigmoid",
+          "events": 66
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "ReduceSum",
+          "events": 6
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Sub",
+          "events": 6
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "GroupQueryAttention",
+          "events": 30
+        },
+        {
+          "provider": "CPUExecutionProvider",
+          "op": "Identity",
+          "events": 6
+        }
+      ]
+    },
+    "vision_encoder_q8": {
+      "path": ".\\results\\cpu-q4-profile-ticket-common-set1-vision_encoder_q8_2026-11-13_01-33-09_109.json",
+      "executed_nodes": []
+    }
+  }
+}

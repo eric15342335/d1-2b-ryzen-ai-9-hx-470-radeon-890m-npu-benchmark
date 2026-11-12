@@ -1,0 +1,201 @@
+{
+  "provider": "cpu",
+  "precision": "q4",
+  "ort_version": "1.31.1",
+  "threads": 4,
+  "model_revision": "2fd61486312020c30a1e3aa5aa677424672b2b37",
+  "runtime_revision": "26857c2e4d12381c6c630e7f7daf00bb3589f721",
+  "load_seconds": 8.2449603999994,
+  "profiling": false,
+  "warmup": 3,
+  "workloads": [
+    {
+      "name": "ticket",
+      "state": "I was charged twice and my parcel never arrived. Please refund one charge.",
+      "questions": {
+        "refund": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a refund?"
+        },
+        "team": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "billing": "Charges, refunds, invoices",
+            "shipping": "Delivery and parcels",
+            "technical": "App or site faults"
+          }
+        },
+        "urgency": {
+          "type": "score",
+          "instructions": "How urgent is this ticket?",
+          "criteria": [
+            "low",
+            "medium",
+            "high"
+          ]
+        }
+      },
+      "fixture_sha256": "142b7e5392b3632878fa16f81bf4cb99a21d16b5d23879fe7d7c7d87fe6231fc",
+      "first_ms": 651.3421999989077,
+      "timings_ms": [
+        657.2712999914074,
+        630.6212000054074,
+        664.0270999923814,
+        631.249600002775,
+        703.5928999976022,
+        647.9550000076415,
+        706.5577000030316,
+        650.7584999926621,
+        707.1372000064002,
+        654.2344000044977,
+        648.7202999996953,
+        638.5599000059301,
+        651.0721999948146,
+        655.3754000051413,
+        653.9130000019213,
+        640.5900000099791,
+        637.580299997353,
+        659.0628999983892,
+        688.0164000031073,
+        696.2085999984993
+      ],
+      "output": {
+        "answers": {
+          "refund": {
+            "type": "noul",
+            "noul": 0.9976039043169852
+          },
+          "team": {
+            "type": "choice",
+            "choice": "billing",
+            "confidence": 0.7388346021122554,
+            "probabilities": {
+              "billing": 0.7388346021122554,
+              "shipping": 0.21930845964695322,
+              "technical": 0.04185693824079142
+            }
+          },
+          "urgency": {
+            "type": "score",
+            "score": 1.0,
+            "confidence": 0.6416180596464984,
+            "probabilities": {
+              "0": 0.19326387020406144,
+              "1": 0.6416180596464984,
+              "2": 0.1651180701494401
+            },
+            "legend": {
+              "0": "low",
+              "1": "medium",
+              "2": "high"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 123,
+          "output_tokens": 0
+        }
+      },
+      "mean_ms": 661.1251950009319,
+      "median_ms": 654.0737000032095,
+      "p95_ms": 706.5577000030316,
+      "states_per_second": 1.5125728191293488,
+      "questions_per_second": 4.5377184573880465
+    },
+    {
+      "name": "long-ticket",
+      "state": "I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. ",
+      "questions": {
+        "refund": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a refund?"
+        },
+        "team": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "billing": "Charges, refunds, invoices",
+            "shipping": "Delivery and parcels",
+            "technical": "App or site faults"
+          }
+        },
+        "urgency": {
+          "type": "score",
+          "instructions": "How urgent is this ticket?",
+          "criteria": [
+            "low",
+            "medium",
+            "high"
+          ]
+        }
+      },
+      "fixture_sha256": "142b7e5392b3632878fa16f81bf4cb99a21d16b5d23879fe7d7c7d87fe6231fc",
+      "first_ms": 3213.364300012472,
+      "timings_ms": [
+        2865.7447999867145,
+        2821.928499994101,
+        2866.1580000043614,
+        2854.836400001659,
+        2812.3350999958348,
+        2887.875800006441,
+        2851.2876000022516,
+        2860.3141000057803,
+        2882.8241000010166,
+        2830.5984000035096,
+        2853.6631999886595,
+        2862.89439999382,
+        2889.5633000065573,
+        2879.9829999916255,
+        2902.834399996209,
+        2841.4472000004025,
+        2794.023299997207,
+        2824.0283000050113,
+        2889.1195000032894,
+        2801.245199996629
+      ],
+      "output": {
+        "answers": {
+          "refund": {
+            "type": "noul",
+            "noul": 0.9979169761129149
+          },
+          "team": {
+            "type": "choice",
+            "choice": "billing",
+            "confidence": 0.5881150994508418,
+            "probabilities": {
+              "billing": 0.5881150994508418,
+              "shipping": 0.3825427092852926,
+              "technical": 0.02934219126386556
+            }
+          },
+          "urgency": {
+            "type": "score",
+            "score": 1.0,
+            "confidence": 0.41838888707954464,
+            "probabilities": {
+              "0": 0.38813301278299567,
+              "1": 0.41838888707954464,
+              "2": 0.19347810013745964
+            },
+            "legend": {
+              "0": "low",
+              "1": "medium",
+              "2": "high"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 589,
+          "output_tokens": 0
+        }
+      },
+      "mean_ms": 2853.635229999054,
+      "median_ms": 2857.5752500037197,
+      "p95_ms": 2889.5633000065573,
+      "states_per_second": 0.35043021248386097,
+      "questions_per_second": 1.051290637451583
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+ORT 1.31.1
+[('CPUExecutionProvider', 4130, {'Description': 'AMD Ryzen AI 9 HX 470 w/ Radeon 890M            '}), ('WebGpuExecutionProvider', 4318, {'Description': 'NVIDIA GeForce RTX 5060 Laptop GPU', 'Discrete': '1', 'DxgiAdapterNumber': '1', 'DxgiHighPerformanceIndex': '0', 'DxgiVideoMemory': '7898 MB', 'LUID': '81960'}), ('WebGpuExecutionProvider', 4098, {'Description': 'AMD Radeon(TM) 890M Graphics', 'Discrete': '0', 'DxgiAdapterNumber': '0', 'DxgiHighPerformanceIndex': '1', 'DxgiVideoMemory': '459 MB', 'LUID': '71660'})]

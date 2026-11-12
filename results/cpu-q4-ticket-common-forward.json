@@ -1,0 +1,512 @@
+{
+  "provider": "cpu",
+  "precision": "q4",
+  "ort_version": "1.31.1",
+  "threads": 4,
+  "model_revision": "2fd61486312020c30a1e3aa5aa677424672b2b37",
+  "runtime_revision": "26857c2e4d12381c6c630e7f7daf00bb3589f721",
+  "load_seconds": 7.510458499999913,
+  "profiling": false,
+  "warmup": 3,
+  "workloads": [
+    {
+      "name": "ticket",
+      "state": "I was charged twice and my parcel never arrived. Please refund one charge.",
+      "questions": {
+        "refund": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a refund?"
+        },
+        "team": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "billing": "Charges, refunds, invoices",
+            "shipping": "Delivery and parcels",
+            "technical": "App or site faults"
+          }
+        },
+        "urgency": {
+          "type": "score",
+          "instructions": "How urgent is this ticket?",
+          "criteria": [
+            "low",
+            "medium",
+            "high"
+          ]
+        }
+      },
+      "fixture_sha256": "142b7e5392b3632878fa16f81bf4cb99a21d16b5d23879fe7d7c7d87fe6231fc",
+      "first_ms": 561.2023000001045,
+      "timings_ms": [
+        586.078599999837,
+        597.0016999999643,
+        678.4301000000141,
+        629.6855000000505,
+        668.2577000001402,
+        601.4993000001141,
+        647.2461999999268,
+        595.2506000000994,
+        630.0932999999986,
+        613.3293000000322,
+        596.2337000000844,
+        597.3022999999102,
+        596.8407000000298,
+        599.1602999999941,
+        595.6436000001304,
+        631.1381000000438,
+        616.7540999999801,
+        605.3552000000764,
+        586.2973999999213,
+        618.1020000001354
+      ],
+      "output": {
+        "answers": {
+          "refund": {
+            "type": "noul",
+            "noul": 0.9976039043169852
+          },
+          "team": {
+            "type": "choice",
+            "choice": "billing",
+            "confidence": 0.7388346021122554,
+            "probabilities": {
+              "billing": 0.7388346021122554,
+              "shipping": 0.21930845964695322,
+              "technical": 0.04185693824079142
+            }
+          },
+          "urgency": {
+            "type": "score",
+            "score": 1.0,
+            "confidence": 0.6416180596464984,
+            "probabilities": {
+              "0": 0.19326387020406144,
+              "1": 0.6416180596464984,
+              "2": 0.1651180701494401
+            },
+            "legend": {
+              "0": "low",
+              "1": "medium",
+              "2": "high"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 123,
+          "output_tokens": 0
+        }
+      },
+      "first_forward_records": [
+        {
+          "session": "decoder_q4",
+          "ms": 551.5141000000767,
+          "sequence_length": 123
+        }
+      ],
+      "forward_records_per_request": [
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 584.337099999857,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 595.4232999999931,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 676.6008000001875,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 627.8162000000975,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 666.6023999998743,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 598.6611999999241,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 645.534600000019,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 593.520000000126,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 628.5037999998622,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 611.5973999999369,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 594.4419999998445,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 595.4753000000892,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 595.118599999978,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 597.4694999999883,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 593.7684000000445,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 629.3524000000161,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 614.8820999999316,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 603.2341000000088,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 584.6558999999161,
+            "sequence_length": 123
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 616.1596000001737,
+            "sequence_length": 123
+          }
+        ]
+      ],
+      "input_forward_definition": "sum of synchronous ORT.Run calls; includes transfers and CPU partitions",
+      "mean_input_forward_ms": 612.6577349999934,
+      "mean_ms": 614.4849850000242,
+      "median_ms": 603.4272500000952,
+      "p95_ms": 668.2577000001402,
+      "states_per_second": 1.6273790644371249,
+      "questions_per_second": 4.882137193311374
+    },
+    {
+      "name": "long-ticket",
+      "state": "I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. ",
+      "questions": {
+        "refund": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a refund?"
+        },
+        "team": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "billing": "Charges, refunds, invoices",
+            "shipping": "Delivery and parcels",
+            "technical": "App or site faults"
+          }
+        },
+        "urgency": {
+          "type": "score",
+          "instructions": "How urgent is this ticket?",
+          "criteria": [
+            "low",
+            "medium",
+            "high"
+          ]
+        }
+      },
+      "fixture_sha256": "142b7e5392b3632878fa16f81bf4cb99a21d16b5d23879fe7d7c7d87fe6231fc",
+      "first_ms": 2838.255499999832,
+      "timings_ms": [
+        2753.003499999977,
+        2769.3338000001404,
+        2761.3541000000623,
+        2769.8425000000952,
+        2786.278799999991,
+        2781.6933999999947,
+        4991.244700000152,
+        4865.580300000147,
+        4998.633200000086,
+        4678.685899999891,
+        2822.6402999998754,
+        2770.9541000001536,
+        2793.6357999999473,
+        2813.3586000001287,
+        2849.760700000161,
+        2730.429400000048,
+        2842.557200000101,
+        2774.985000000015,
+        2778.543099999979,
+        2843.5895000000073
+      ],
+      "output": {
+        "answers": {
+          "refund": {
+            "type": "noul",
+            "noul": 0.9979169761129149
+          },
+          "team": {
+            "type": "choice",
+            "choice": "billing",
+            "confidence": 0.5881150994508418,
+            "probabilities": {
+              "billing": 0.5881150994508418,
+              "shipping": 0.3825427092852926,
+              "technical": 0.02934219126386556
+            }
+          },
+          "urgency": {
+            "type": "score",
+            "score": 1.0,
+            "confidence": 0.41838888707954464,
+            "probabilities": {
+              "0": 0.38813301278299567,
+              "1": 0.41838888707954464,
+              "2": 0.19347810013745964
+            },
+            "legend": {
+              "0": "low",
+              "1": "medium",
+              "2": "high"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 589,
+          "output_tokens": 0
+        }
+      },
+      "first_forward_records": [
+        {
+          "session": "decoder_q4",
+          "ms": 2835.7826999999816,
+          "sequence_length": 589
+        }
+      ],
+      "forward_records_per_request": [
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 2750.458199999912,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 2766.8902000000344,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 2759.033699999918,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 2767.37049999997,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 2783.5488000000623,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 2779.2010999999093,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 4988.797999999861,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 4862.663799999837,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 4995.499599999903,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 4676.130000000057,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 2820.269499999995,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 2768.6125000000175,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 2790.981200000033,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 2810.947599999963,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 2847.3386000000573,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 2727.9923999999482,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 2840.02119999991,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 2772.4327000000812,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 2775.6409999999505,
+            "sequence_length": 589
+          }
+        ],
+        [
+          {
+            "session": "decoder_q4",
+            "ms": 2840.9059999999045,
+            "sequence_length": 589
+          }
+        ]
+      ],
+      "input_forward_definition": "sum of synchronous ORT.Run calls; includes transfers and CPU partitions",
+      "mean_input_forward_ms": 3206.236829999966,
+      "mean_ms": 3208.8051950000477,
+      "median_ms": 2789.957299999969,
+      "p95_ms": 4991.244700000152,
+      "states_per_second": 0.3116424772554587,
+      "questions_per_second": 0.934927431766376
+    }
+  ],
+  "set_size": null,
+  "forward_timing_enabled": true,
+  "decode_tokens": 0,
+  "context": {
+    "checkpoint_max_position_embeddings": 128000,
+    "sliding_window": 256,
+    "runtime_input": "dynamic; no fixed context override",
+    "kv_cache": false
+  }
+}
