@@ -1,0 +1,2 @@
+# Keep measurement artifacts byte-exact; no line-ending conversion.
+results/** -text

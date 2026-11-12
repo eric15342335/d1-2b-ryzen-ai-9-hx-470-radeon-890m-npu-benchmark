@@ -1,0 +1,12 @@
+# Environments, downloaded runtimes and models (see README "Environment setup")
+.venv/
+.venv-winml/
+.cache/
+models/
+
+# Tool caches
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
