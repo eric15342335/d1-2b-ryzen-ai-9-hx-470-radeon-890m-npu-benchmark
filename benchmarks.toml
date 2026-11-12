@@ -1,0 +1,101 @@
+# Benchmark catalog read by `d1bench`. One table per benchmark id.
+#
+#   kind        onnx | npu | llama | reference: which runner and result format
+#   label       name used in reports
+#   args        extra runner arguments (the CLI adds --output)
+#   pythonpath  directories prepended to PYTHONPATH for the runner process. The ONNX Runtime
+#               version is fixed at import, so each benchmark runs in its own process:
+#               .cache/ort-modern overlays ORT 1.31.1 on the .venv's DirectML 1.25 nightly.
+#   result      file in results/ the runner writes (llama: prefix of its per-fixture files)
+#   pins        upstream git checkouts that must be at these commits before a run
+#   model       model repository and revision the runner loads
+#   expect      "ok", or "fails" for probes kept as evidence of a compatibility blocker
+#   note        one line for the report
+
+[cpu-q4]
+kind = "onnx"
+label = "CPU ONNX q4"
+args = ["--provider", "cpu", "--precision", "q4"]
+pythonpath = [".cache/ort-modern", ".cache/liquidonnx/src"]
+result = "cpu-q4-ticket-common-forward.json"
+pins = { ".cache/liquidonnx" = "26857c2e4d12381c6c630e7f7daf00bb3589f721" }
+model = "LiquidAI/d1-2B-ONNX@2fd61486312020c30a1e3aa5aa677424672b2b37"
+expect = "ok"
+note = "ORT 1.31.1 CPU EP, 4 intra-op threads"
+
+[webgpu-q4]
+kind = "onnx"
+label = "iGPU WebGPU ONNX q4"
+args = ["--provider", "webgpu", "--precision", "q4"]
+pythonpath = [".cache/ort-modern", ".cache/webgpu-plugin", ".cache/liquidonnx/src"]
+result = "webgpu-q4-ticket-common-forward.json"
+pins = { ".cache/liquidonnx" = "26857c2e4d12381c6c630e7f7daf00bb3589f721" }
+model = "LiquidAI/d1-2B-ONNX@2fd61486312020c30a1e3aa5aa677424672b2b37"
+expect = "ok"
+note = "onnxruntime-ep-webgpu 0.5.0 on Radeon 890M (vendor 0x1002); control ops on CPU"
+
+[dml-q4]
+kind = "onnx"
+label = "iGPU DirectML ONNX q4"
+args = ["--provider", "dml", "--precision", "q4"]
+pythonpath = [".cache/liquidonnx/src"]
+result = "dml-q4-ticket-common-forward.json"
+pins = { ".cache/liquidonnx" = "26857c2e4d12381c6c630e7f7daf00bb3589f721" }
+model = "LiquidAI/d1-2B-ONNX@2fd61486312020c30a1e3aa5aa677424672b2b37"
+expect = "fails"
+note = "MultiHeadAttention fails with HRESULT 80070057 on ORT DirectML 1.24.4 and 1.25 nightly"
+
+[dml-q4f16]
+kind = "onnx"
+label = "iGPU DirectML ONNX q4f16"
+args = ["--provider", "dml", "--precision", "q4f16"]
+pythonpath = [".cache/liquidonnx/src"]
+result = "dml-q4f16-ticket-common-forward.json"
+pins = { ".cache/liquidonnx" = "26857c2e4d12381c6c630e7f7daf00bb3589f721" }
+model = "LiquidAI/d1-2B-ONNX@2fd61486312020c30a1e3aa5aa677424672b2b37"
+expect = "fails"
+note = "Same MultiHeadAttention failure as q4"
+
+[npu-tomoali]
+kind = "npu"
+label = "CPU+NPU Tomoali W4"
+args = []
+pythonpath = [".cache/ort-modern", ".cache/tomoali-runtime"]
+result = "tomoali-npu.json"
+pins = { ".cache/tomoali-runtime" = "e94cf1b50db06eac3aa388c7e55f7610bb27c446" }
+model = "Tomoali/d1-2B-ryzen-ai-npu@04c583fcf56ecfaa6d387d03aa8330c896b27f7c"
+expect = "ok"
+note = "RyzenAILight EP runs the 143 MatMulNBits per forward; attention, conv and norms on CPU. Needs results/tomoali-runtime-npu-only.patch applied"
+
+[llama-q4km]
+kind = "llama"
+label = "iGPU llama.cpp Q4_K_M"
+args = ["--model", "models/d1-2B-GGUF/d1-2B-Q4_K_M.gguf"]
+pythonpath = []
+result = "llama-q4km"
+pins = {}
+model = "LiquidAI/d1-2B-GGUF@4a181094d1b6addfaa3a0956f78e7ab2aa406a0c"
+expect = "ok"
+note = "llama.cpp b12110 Vulkan0, 25/25 layers offloaded; oha 20 requests, concurrency 1"
+
+[llama-q8]
+kind = "llama"
+label = "iGPU llama.cpp Q8_0"
+args = ["--model", "models/d1-2B-GGUF/d1-2B-Q8_0.gguf"]
+pythonpath = []
+result = "llama-q8"
+pins = {}
+model = "LiquidAI/d1-2B-GGUF@4a181094d1b6addfaa3a0956f78e7ab2aa406a0c"
+expect = "ok"
+note = "llama.cpp b12110 Vulkan0, 25/25 layers offloaded; oha 20 requests, concurrency 1"
+
+[reference]
+kind = "reference"
+label = "PyTorch float32 reference"
+args = []
+pythonpath = []
+result = "pytorch-reference.json"
+pins = {}
+model = "LiquidAI/d1-2B@652f920e544ea37f81e4b0ce89b81d4ed0da90b1"
+expect = "ok"
+note = "Transformers on CPU; correctness baseline, not a speed result"
