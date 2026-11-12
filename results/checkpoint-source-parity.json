@@ -1,0 +1,27 @@
+{
+  "calibration.json": {
+    "models\\d1-2B-reference": "e534464458f485d800fe6cc896ac241590bbc8cd54f5af08f7b3064b0d884d69",
+    "models\\d1-2B-ONNX": "e534464458f485d800fe6cc896ac241590bbc8cd54f5af08f7b3064b0d884d69",
+    "models\\d1-2b-ryzen-ai-npu": "e534464458f485d800fe6cc896ac241590bbc8cd54f5af08f7b3064b0d884d69"
+  },
+  "tokenizer.json": {
+    "models\\d1-2B-reference": "a39eed58008cbcbc09e5b629b81338a654269c64cd13348aaa6090f4db75c7e7",
+    "models\\d1-2B-ONNX": "a39eed58008cbcbc09e5b629b81338a654269c64cd13348aaa6090f4db75c7e7",
+    "models\\d1-2b-ryzen-ai-npu": "a39eed58008cbcbc09e5b629b81338a654269c64cd13348aaa6090f4db75c7e7"
+  },
+  "config.json": {
+    "models\\d1-2B-reference": "ffdc4c996152d23dbe8a2659a8c6aabe2992aa3fa3a41601dd0fca8771d6f332",
+    "models\\d1-2B-ONNX": "ffdc4c996152d23dbe8a2659a8c6aabe2992aa3fa3a41601dd0fca8771d6f332",
+    "models\\d1-2b-ryzen-ai-npu": "ffdc4c996152d23dbe8a2659a8c6aabe2992aa3fa3a41601dd0fca8771d6f332"
+  },
+  "prompt.py": {
+    "models\\d1-2B-reference": "e9d40f98c36ab68b8e3c33fd00a77e58218460fdc88c96b5edeef793a260d20b",
+    "models\\d1-2B-ONNX": "e5344f65481374da6b30e5ceda2a5ee398100b13ee69ed2ce52ac42713a7a048",
+    "models\\d1-2b-ryzen-ai-npu": "e5344f65481374da6b30e5ceda2a5ee398100b13ee69ed2ce52ac42713a7a048"
+  },
+  "attention.py": {
+    "models\\d1-2B-reference": "2608cc3f48bc3f906b64244322df81de5a18cd1faa8243680713289d5540fd2c",
+    "models\\d1-2B-ONNX": "2608cc3f48bc3f906b64244322df81de5a18cd1faa8243680713289d5540fd2c",
+    "models\\d1-2b-ryzen-ai-npu": "2608cc3f48bc3f906b64244322df81de5a18cd1faa8243680713289d5540fd2c"
+  }
+}

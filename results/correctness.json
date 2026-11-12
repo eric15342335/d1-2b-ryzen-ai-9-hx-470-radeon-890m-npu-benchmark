@@ -1,0 +1,335 @@
+{
+  "reference": "LiquidAI/d1-2B@652f920e544ea37f81e4b0ce89b81d4ed0da90b1",
+  "records": [
+    {
+      "id": "cpu-q4",
+      "backend": "CPU ONNX q4",
+      "workload": "ticket",
+      "reference_set_size": null,
+      "score_semantics": "median",
+      "comparisons": [
+        {
+          "question": "refund",
+          "label": true,
+          "reference_label": true,
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.0001631530862041819,
+          "raw_score": null
+        },
+        {
+          "question": "team",
+          "label": "billing",
+          "reference_label": "billing",
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.04248258580837516,
+          "raw_score": null
+        },
+        {
+          "question": "urgency",
+          "label": 1.0,
+          "reference_label": 1.0,
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.04452317873708794,
+          "raw_score": 1.0
+        }
+      ]
+    },
+    {
+      "id": "cpu-q4",
+      "backend": "CPU ONNX q4",
+      "workload": "long-ticket",
+      "reference_set_size": null,
+      "score_semantics": "median",
+      "comparisons": [
+        {
+          "question": "refund",
+          "label": true,
+          "reference_label": true,
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.0001803096225526657,
+          "raw_score": null
+        },
+        {
+          "question": "team",
+          "label": "billing",
+          "reference_label": "billing",
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.09290395453137773,
+          "raw_score": null
+        },
+        {
+          "question": "urgency",
+          "label": 1.0,
+          "reference_label": 1.0,
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.02033384925031889,
+          "raw_score": 1.0
+        }
+      ]
+    },
+    {
+      "id": "webgpu-q4",
+      "backend": "iGPU WebGPU ONNX q4",
+      "workload": "ticket",
+      "reference_set_size": null,
+      "score_semantics": "median",
+      "comparisons": [
+        {
+          "question": "refund",
+          "label": true,
+          "reference_label": true,
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.0002462675883616594,
+          "raw_score": null
+        },
+        {
+          "question": "team",
+          "label": "billing",
+          "reference_label": "billing",
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.03884499384275908,
+          "raw_score": null
+        },
+        {
+          "question": "urgency",
+          "label": 1.0,
+          "reference_label": 1.0,
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.043618045221904655,
+          "raw_score": 1.0
+        }
+      ]
+    },
+    {
+      "id": "webgpu-q4",
+      "backend": "iGPU WebGPU ONNX q4",
+      "workload": "long-ticket",
+      "reference_set_size": null,
+      "score_semantics": "median",
+      "comparisons": [
+        {
+          "question": "refund",
+          "label": true,
+          "reference_label": true,
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.00020833483362892036,
+          "raw_score": null
+        },
+        {
+          "question": "team",
+          "label": "billing",
+          "reference_label": "billing",
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.09248896354323033,
+          "raw_score": null
+        },
+        {
+          "question": "urgency",
+          "label": 1.0,
+          "reference_label": 1.0,
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.024988889696308858,
+          "raw_score": 1.0
+        }
+      ]
+    },
+    {
+      "id": "npu-tomoali",
+      "backend": "CPU+NPU Tomoali W4",
+      "workload": "ticket",
+      "reference_set_size": null,
+      "score_semantics": "mean; median derived for the label",
+      "comparisons": [
+        {
+          "question": "refund",
+          "label": true,
+          "reference_label": true,
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.0008494804084476781,
+          "raw_score": null
+        },
+        {
+          "question": "team",
+          "label": "billing",
+          "reference_label": "billing",
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.025703065465767727,
+          "raw_score": null
+        },
+        {
+          "question": "urgency",
+          "label": 1,
+          "reference_label": 1.0,
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.032806599578780404,
+          "raw_score": 1.0080738048319977
+        }
+      ]
+    },
+    {
+      "id": "npu-tomoali",
+      "backend": "CPU+NPU Tomoali W4",
+      "workload": "long-ticket",
+      "reference_set_size": null,
+      "score_semantics": "mean; median derived for the label",
+      "comparisons": [
+        {
+          "question": "refund",
+          "label": true,
+          "reference_label": true,
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.000124441983154866,
+          "raw_score": null
+        },
+        {
+          "question": "team",
+          "label": "billing",
+          "reference_label": "billing",
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.16549581153312043,
+          "raw_score": null
+        },
+        {
+          "question": "urgency",
+          "label": 1,
+          "reference_label": 1.0,
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.030636425853169724,
+          "raw_score": 0.8485371291217247
+        }
+      ]
+    },
+    {
+      "id": "llama-q4km",
+      "backend": "iGPU llama.cpp Q4_K_M",
+      "workload": "ticket",
+      "reference_set_size": 1,
+      "score_semantics": "median",
+      "comparisons": [
+        {
+          "question": "refund",
+          "label": true,
+          "reference_label": true,
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.00022271873021262323,
+          "raw_score": null
+        },
+        {
+          "question": "team",
+          "label": "billing",
+          "reference_label": "billing",
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.06193160952081872,
+          "raw_score": null
+        },
+        {
+          "question": "urgency",
+          "label": 1.0,
+          "reference_label": 1.0,
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.04003000220543773,
+          "raw_score": 1.0
+        }
+      ]
+    },
+    {
+      "id": "llama-q4km",
+      "backend": "iGPU llama.cpp Q4_K_M",
+      "workload": "long-ticket",
+      "reference_set_size": 1,
+      "score_semantics": "median",
+      "comparisons": [
+        {
+          "question": "refund",
+          "label": true,
+          "reference_label": true,
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.000921808231152732,
+          "raw_score": null
+        },
+        {
+          "question": "team",
+          "label": "shipping",
+          "reference_label": "shipping",
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.033316888835279446,
+          "raw_score": null
+        },
+        {
+          "question": "urgency",
+          "label": 1.0,
+          "reference_label": 0.0,
+          "label_agrees": false,
+          "max_abs_probability_delta": 0.08751442683991417,
+          "raw_score": 1.0
+        }
+      ]
+    },
+    {
+      "id": "llama-q8",
+      "backend": "iGPU llama.cpp Q8_0",
+      "workload": "ticket",
+      "reference_set_size": 1,
+      "score_semantics": "median",
+      "comparisons": [
+        {
+          "question": "refund",
+          "label": true,
+          "reference_label": true,
+          "label_agrees": true,
+          "max_abs_probability_delta": 4.801269649856721e-05,
+          "raw_score": null
+        },
+        {
+          "question": "team",
+          "label": "billing",
+          "reference_label": "billing",
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.0031252298533896022,
+          "raw_score": null
+        },
+        {
+          "question": "urgency",
+          "label": 1.0,
+          "reference_label": 1.0,
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.00020112251747977927,
+          "raw_score": 1.0
+        }
+      ]
+    },
+    {
+      "id": "llama-q8",
+      "backend": "iGPU llama.cpp Q8_0",
+      "workload": "long-ticket",
+      "reference_set_size": 1,
+      "score_semantics": "median",
+      "comparisons": [
+        {
+          "question": "refund",
+          "label": true,
+          "reference_label": true,
+          "label_agrees": true,
+          "max_abs_probability_delta": 1.1424748589394795e-05,
+          "raw_score": null
+        },
+        {
+          "question": "team",
+          "label": "shipping",
+          "reference_label": "shipping",
+          "label_agrees": true,
+          "max_abs_probability_delta": 0.00457065557998193,
+          "raw_score": null
+        },
+        {
+          "question": "urgency",
+          "label": 1.0,
+          "reference_label": 0.0,
+          "label_agrees": false,
+          "max_abs_probability_delta": 0.006837622748622124,
+          "raw_score": 1.0
+        }
+      ]
+    }
+  ]
+}

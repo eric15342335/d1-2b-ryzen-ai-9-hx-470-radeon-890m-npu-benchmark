@@ -1,0 +1,187 @@
+{
+  "model": ".\\models\\d1-2B-reference",
+  "model_revision": "652f920e544ea37f81e4b0ce89b81d4ed0da90b1",
+  "fixture": ".\\fixtures\\ticket-common.json",
+  "fixture_sha256": "142b7e5392b3632878fa16f81bf4cb99a21d16b5d23879fe7d7c7d87fe6231fc",
+  "backend": "transformers-cpu",
+  "dtype": "float32",
+  "threads": 4,
+  "load_seconds": 8.522508700000117,
+  "python_version": "3.13.15",
+  "torch_version": "2.15.0+cpu",
+  "transformers_version": "5.22.2",
+  "workloads": [
+    {
+      "name": "short",
+      "state": "I was charged twice and my parcel never arrived. Please refund one charge.",
+      "set_size": null,
+      "elapsed_ms": 3097.079699999995,
+      "output": {
+        "answers": {
+          "refund": {
+            "type": "noul",
+            "noul": 0.997440751230781
+          },
+          "team": {
+            "type": "choice",
+            "choice": "billing",
+            "confidence": 0.6963520163038802,
+            "probabilities": {
+              "billing": 0.6963520163038802,
+              "shipping": 0.256119328192546,
+              "technical": 0.047528655503573845
+            }
+          },
+          "urgency": {
+            "type": "score",
+            "score": 1.0,
+            "confidence": 0.6243457672915907,
+            "probabilities": {
+              "0": 0.16601298382188126,
+              "1": 0.6243457672915907,
+              "2": 0.20964124888652805
+            },
+            "legend": {
+              "0": "low",
+              "1": "medium",
+              "2": "high"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 123,
+          "output_tokens": 0
+        }
+      }
+    },
+    {
+      "name": "short",
+      "state": "I was charged twice and my parcel never arrived. Please refund one charge.",
+      "set_size": 1,
+      "elapsed_ms": 2027.5417000000289,
+      "output": {
+        "answers": {
+          "refund": {
+            "type": "noul",
+            "noul": 0.9978755681549013
+          },
+          "team": {
+            "type": "choice",
+            "choice": "billing",
+            "confidence": 0.6172292751256301,
+            "probabilities": {
+              "billing": 0.6172292751256301,
+              "shipping": 0.30658562464887523,
+              "technical": 0.07618510022549461
+            }
+          },
+          "urgency": {
+            "type": "score",
+            "score": 1.0,
+            "confidence": 0.6512482471407227,
+            "probabilities": {
+              "0": 0.19462846441445797,
+              "1": 0.6512482471407227,
+              "2": 0.15412328844481932
+            },
+            "legend": {
+              "0": "low",
+              "1": "medium",
+              "2": "high"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 161,
+          "output_tokens": 0
+        }
+      }
+    },
+    {
+      "name": "state-times-32",
+      "state": "I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. ",
+      "set_size": null,
+      "elapsed_ms": 5487.988800000039,
+      "output": {
+        "answers": {
+          "refund": {
+            "type": "noul",
+            "noul": 0.9977366664903622
+          },
+          "team": {
+            "type": "choice",
+            "choice": "billing",
+            "confidence": 0.4993077994162681,
+            "probabilities": {
+              "billing": 0.4993077994162681,
+              "shipping": 0.47544666381667033,
+              "technical": 0.025245536767061608
+            }
+          },
+          "urgency": {
+            "type": "score",
+            "score": 1.0,
+            "confidence": 0.4151041815374739,
+            "probabilities": {
+              "0": 0.3710838690747475,
+              "1": 0.4151041815374739,
+              "2": 0.21381194938777853
+            },
+            "legend": {
+              "0": "low",
+              "1": "medium",
+              "2": "high"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 589,
+          "output_tokens": 0
+        }
+      }
+    },
+    {
+      "name": "state-times-32",
+      "state": "I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. ",
+      "set_size": 1,
+      "elapsed_ms": 14749.32149999995,
+      "output": {
+        "answers": {
+          "refund": {
+            "type": "noul",
+            "noul": 0.9981761855259508
+          },
+          "team": {
+            "type": "choice",
+            "choice": "shipping",
+            "confidence": 0.5587158870222712,
+            "probabilities": {
+              "billing": 0.4137133885781032,
+              "shipping": 0.5587158870222712,
+              "technical": 0.0275707243996256
+            }
+          },
+          "urgency": {
+            "type": "score",
+            "score": 0.0,
+            "confidence": 0.5025793505474964,
+            "probabilities": {
+              "0": 0.5025793505474964,
+              "1": 0.35935419383205064,
+              "2": 0.13806645562045303
+            },
+            "legend": {
+              "0": "low",
+              "1": "medium",
+              "2": "high"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 1559,
+          "output_tokens": 0
+        }
+      }
+    }
+  ]
+}

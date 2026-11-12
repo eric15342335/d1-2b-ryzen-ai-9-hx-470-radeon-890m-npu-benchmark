@@ -1,0 +1,32 @@
+Loading pinned reference model on CPU (float32, 4 threads)...
+
+Loading weights:   0%|          | 0/424 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/424 [00:00<02:17,  3.08it/s]
+Loading weights:   4%|▍         | 17/424 [00:00<00:08, 49.42it/s]
+Loading weights:   7%|▋         | 30/424 [00:00<00:05, 72.95it/s]
+Loading weights:  10%|█         | 44/424 [00:00<00:04, 86.44it/s]
+Loading weights:  14%|█▍        | 60/424 [00:00<00:03, 97.08it/s]
+Loading weights:  18%|█▊        | 75/424 [00:00<00:03, 108.08it/s]
+Loading weights:  21%|██        | 87/424 [00:01<00:03, 104.73it/s]
+Loading weights:  25%|██▌       | 106/424 [00:01<00:03, 98.71it/s]
+Loading weights:  28%|██▊       | 119/424 [00:01<00:03, 97.34it/s]
+Loading weights:  32%|███▏      | 136/424 [00:01<00:02, 109.59it/s]
+Loading weights:  36%|███▌      | 153/424 [00:01<00:02, 103.94it/s]
+Loading weights:  41%|████▏     | 175/424 [00:01<00:01, 127.79it/s]
+Loading weights:  45%|████▍     | 189/424 [00:01<00:02, 106.88it/s]
+Loading weights:  48%|████▊     | 204/424 [00:02<00:01, 112.96it/s]
+Loading weights:  51%|█████     | 217/424 [00:02<00:02, 101.68it/s]
+Loading weights:  54%|█████▍    | 228/424 [00:02<00:01, 100.52it/s]
+Loading weights:  58%|█████▊    | 244/424 [00:02<00:01, 113.42it/s]
+Loading weights:  60%|██████    | 256/424 [00:02<00:01, 108.06it/s]
+Loading weights:  63%|██████▎   | 268/424 [00:02<00:01, 104.32it/s]
+Loading weights:  66%|██████▌   | 279/424 [00:02<00:01, 98.05it/s] 
+Loading weights:  72%|███████▏  | 304/424 [00:02<00:00, 133.60it/s]
+Loading weights:  81%|████████  | 342/424 [00:03<00:00, 196.98it/s]
+Loading weights:  90%|█████████ | 383/424 [00:03<00:00, 253.83it/s]
+Loading weights: 100%|██████████| 424/424 [00:03<00:00, 130.18it/s]
+Running short, set_size=None...
+Running short, set_size=1...
+Running state-times-32, set_size=None...
+Running state-times-32, set_size=1...
+Saved results\pytorch-reference.json
