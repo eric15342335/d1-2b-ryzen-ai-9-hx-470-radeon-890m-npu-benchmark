@@ -1,2 +1,5 @@
 # Keep measurement artifacts byte-exact; no line-ending conversion.
 results/** -text
+
+# Installed third-party agent skills; keep them out of GitHub language stats.
+.agents/** linguist-vendored
