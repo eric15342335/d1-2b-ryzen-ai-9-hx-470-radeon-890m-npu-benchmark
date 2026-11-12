@@ -1,0 +1,142 @@
+[
+  {
+    "utc": "2026-11-12T17:13:41.7931710Z",
+    "event_id": 8101,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.7931470Z",
+    "event_id": 8106,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.7882631Z",
+    "event_id": 8100,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.6341291Z",
+    "event_id": 613,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.6020782Z",
+    "event_id": 400,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.5196965Z",
+    "event_id": 617,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.5195872Z",
+    "event_id": 617,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.5069540Z",
+    "event_id": 617,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.5068065Z",
+    "event_id": 617,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.4197718Z",
+    "event_id": 5507,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.4196184Z",
+    "event_id": 5507,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.4193768Z",
+    "event_id": 5507,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.4191218Z",
+    "event_id": 5507,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.3550706Z",
+    "event_id": 617,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.1801014Z",
+    "event_id": 617,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.1001378Z",
+    "event_id": 855,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.0778745Z",
+    "event_id": 854,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.0767744Z",
+    "event_id": 607,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:41.0746099Z",
+    "event_id": 10002,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:40.6070228Z",
+    "event_id": 613,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:40.5733751Z",
+    "event_id": 400,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:40.5731436Z",
+    "event_id": 617,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:39.8711370Z",
+    "event_id": 8101,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:39.8711168Z",
+    "event_id": 8106,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:39.8690017Z",
+    "event_id": 8100,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:35.0940631Z",
+    "event_id": 574,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:35.0341898Z",
+    "event_id": 607,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  },
+  {
+    "utc": "2026-11-12T17:13:35.0325324Z",
+    "event_id": 10002,
+    "packages": "Microsoft.WinML.AMD.NPU.EP.2_1.8.80.0_x64__8wekyb3d8bbwe"
+  }
+]

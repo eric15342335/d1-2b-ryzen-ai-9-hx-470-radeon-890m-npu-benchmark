@@ -1,0 +1,11 @@
+
+----------------------------------
+[0067:00:01.1] : NPU GorgonPoint1
+----------------------------------
+Platform
+  Name                   : NPU GorgonPoint1 
+  Power Mode             : Default 
+  Total Columns          : 8 
+
+Estimated Power          : N/A
+

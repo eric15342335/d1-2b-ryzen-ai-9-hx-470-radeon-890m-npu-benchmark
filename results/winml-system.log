@@ -1,0 +1,112 @@
+2026-11-13 01:09:31.6525366 [W:onnxruntime:Default, onnxruntime_pybind_module.cc:45 onnxruntime::python::CreateOrtEnv] Init provider bridge failed.
+WinML CLI can collect unlinked pseudonymized usage data to help improve the product.
+
+What is collected:
+  - Command name, duration, success/failure
+  - Target device/EP (when the command specifies them)
+  - OS, architecture, WinML CLI version
+  - Unhandled exception types, code locations, and scrubbed error
+    messages (paths trimmed, length capped, PII patterns scrubbed)
+
+What is never collected:
+  - File paths, model contents, command arguments, credentials
+
+Enable telemetry? [Y/n]: {
+  "executionProviders": {
+    "CPUExecutionProvider": {
+      "entries": [
+        {
+          "source_kind": "BuiltinSource",
+          "source_tag": "bundled",
+          "status": "primary",
+          "dll_path": null,
+          "plugin_version": "1.27.1",
+          "devices": [
+            {
+              "device_type": "CPU",
+              "hardware_name": "AMD Ryzen AI 9 HX 470 w/ Radeon 890M            ",
+              "vendor": "AMD",
+              "luid": null,
+              "high_performance_index": null,
+              "facts": [],
+              "device_facts": []
+            }
+          ]
+        }
+      ]
+    },
+    "DmlExecutionProvider": {
+      "entries": [
+        {
+          "source_kind": "BuiltinSource",
+          "source_tag": "bundled",
+          "status": "primary",
+          "dll_path": null,
+          "plugin_version": "1.27.1",
+          "devices": [
+            {
+              "device_type": "GPU",
+              "hardware_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+              "vendor": "NVIDIA",
+              "luid": "0x00000000_0x00014028",
+              "high_performance_index": "0",
+              "facts": [
+                "Memory: 7.7 GB"
+              ],
+              "device_facts": []
+            },
+            {
+              "device_type": "GPU",
+              "hardware_name": "AMD Radeon(TM) 890M Graphics",
+              "vendor": "Advanced Micro Devices, Inc.",
+              "luid": "0x00000000_0x000117EC",
+              "high_performance_index": "1",
+              "facts": [
+                "Memory: 459.0 MB"
+              ],
+              "device_facts": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "devices": [
+    {
+      "priority": 1,
+      "type": "NPU",
+      "name": "NPU Compute Accelerator Device",
+      "details": {
+        "driver": null,
+        "manufacturer": null,
+        "luid": "0x00000000_0x00015321",
+        "dedicated_memory_mib": 0,
+        "shared_memory_mib": 15948
+      }
+    },
+    {
+      "priority": 2,
+      "type": "GPU",
+      "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "details": {
+        "driver": null,
+        "manufacturer": null,
+        "luid": "0x00000000_0x00014028",
+        "dedicated_memory_mib": 7898,
+        "shared_memory_mib": 15948
+      }
+    },
+    {
+      "priority": 3,
+      "type": "GPU",
+      "name": "AMD Radeon(TM) 890M Graphics",
+      "details": {
+        "driver": null,
+        "manufacturer": null,
+        "luid": "0x00000000_0x000117EC",
+        "dedicated_memory_mib": 459,
+        "shared_memory_mib": 15948
+      }
+    }
+  ]
+}

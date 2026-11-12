@@ -1,0 +1,26 @@
+[
+  {
+    "file": "onnx/decoder_q4.onnx",
+    "bytes": 358945,
+    "sha256": "00b77894a36d92c0d455db07f39743c0fa814f5855aa060b75b8dace1654065f",
+    "upstream_lfs_verified": true
+  },
+  {
+    "file": "onnx/decoder_q4.onnx_data",
+    "bytes": 1741806592,
+    "sha256": "e72031f1b00e3273e286b4125d1b58c20b59c7e031bd791796277e0fab65b14b",
+    "upstream_lfs_verified": true
+  },
+  {
+    "file": "onnx/vision_encoder_q8.onnx",
+    "bytes": 126353,
+    "sha256": "ea9421f2a7fa8bc401bee96b1077be522b8d448e82e46c9117f2bc90eb01caac",
+    "upstream_lfs_verified": true
+  },
+  {
+    "file": "onnx/vision_encoder_q8.onnx_data",
+    "bytes": 196153344,
+    "sha256": "baff3c8cf1dd0b4d8dd3108850558a7f26fafb55367be7bcf98d02739c162d1d",
+    "upstream_lfs_verified": true
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "cpu": "AMD Ryzen AI 9 HX 470 w/ Radeon 890M            ",
+  "windows_build": "26200",
+  "windows_ubr": 9974,
+  "display_version": "25H2",
+  "gpu": "AMD Radeon(TM) 890M Graphics",
+  "gpu_driver": "32.0.31041.1004",
+  "npu": "AMD GorgonPoint1",
+  "npu_driver": "32.0.20102.3930",
+  "physical_memory_bytes": 33446285312,
+  "dml_dxgi_adapter_index": 0,
+  "power_plan": "Balanced",
+  "npu_power_mode": "Default"
+}

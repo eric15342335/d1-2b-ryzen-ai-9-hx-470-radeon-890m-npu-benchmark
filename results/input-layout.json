@@ -1,0 +1,26 @@
+[
+  {
+    "name": "ticket",
+    "state_characters": 74,
+    "questions": 3,
+    "packed_forward_tokens": 123,
+    "separate_forward_tokens": {
+      "refund": 43,
+      "team": 64,
+      "urgency": 54
+    },
+    "separate_total_tokens": 161
+  },
+  {
+    "name": "long-ticket",
+    "state_characters": 2400,
+    "questions": 3,
+    "packed_forward_tokens": 589,
+    "separate_forward_tokens": {
+      "refund": 509,
+      "team": 530,
+      "urgency": 520
+    },
+    "separate_total_tokens": 1559
+  }
+]

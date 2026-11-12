@@ -1,0 +1,34 @@
+Usage: winml catalog [OPTIONS]
+
+  Browse WinML CLI's curated built-in model catalog.
+
+  Lists HuggingFace models that have been validated end-to-end (export ->
+  quantise -> run on device) with confirmed accuracy results. Use ``--output``
+  to save results to a JSON file, or ``--format json`` to print structured
+  JSON to stdout.
+
+  \b Examples:     winml catalog     winml catalog --model-type bert     winml
+  catalog --task text-classification     winml catalog --ep qnn     winml
+  catalog --device NPU     winml catalog --format json     winml catalog
+  --output results/catalog.json
+
+Options:
+  --model-type TYPE               Filter by model architecture (e.g. bert,
+                                  roberta, vit).
+  -t, --task TASK                 Filter by HuggingFace task (e.g. text-
+                                  classification, image-segmentation).
+  --ep, --execution-provider [CPUExecutionProvider|DmlExecutionProvider|MIGraphXExecutionProvider|NvTensorRTRTXExecutionProvider|OpenVINOExecutionProvider|QNNExecutionProvider|TensorrtExecutionProvider|VitisAIExecutionProvider|qnn|openvino|vitisai|cpu|dml|nvtensorrtrtx|nv_tensorrt_rtx|migraphx|tensorrt]
+                                  Target execution provider. Full names:
+                                  QNNExecutionProvider,
+                                  OpenVINOExecutionProvider,
+                                  VitisAIExecutionProvider. Aliases: qnn,
+                                  ov/openvino, vitis/vitisai. If not
+                                  specified, shows all EPs
+  -d, --device [cpu|gpu|npu]      Target device type (cpu, gpu, npu). If not
+                                  specified, shows all devices
+  -o, --output PATH               Save results to a JSON file.
+  --overwrite / --no-overwrite    Overwrite an existing output instead of
+                                  erroring out  [default: no-overwrite]
+  -f, --format [text|json]        Output format (default: text). 'json' prints
+                                  structured JSON to stdout.
+  -h, --help                      Show this message and exit.

@@ -1,0 +1,284 @@
+{
+    "Header": {
+        "Program": "D3d12info",
+        "Version": "3.21.0",
+        "Build Date": "Oct 28 2026 17:44:38",
+        "Configuration": "Release",
+        "Configuration bits": "64-bit",
+        "Generated on": "2026-11-13",
+        "Using preview Agility SDK": false,
+        "D3D12_SDK_VERSION": 620,
+        "NvAPI compiled version": "R615",
+        "NVAPI_SDK_VERSION": 61683,
+        "NvAPI_GetInterfaceVersionString": "NVidia Complete Version 1.10",
+        "AMD_AGS_VERSION": "6.3.1",
+        "agsGetVersionNumber": "25178113",
+        "AMD device_info compiled version": "2026-06-02 (v1.0)",
+        "Vulkan-Headers compiled version": "1.4.364.0",
+        "Intel GPU Detect compiled version": "2025-04-28"
+    },
+    "SetApplicationIdentity": {
+        "pExeFilename": "D3d12info.exe",
+        "pName": "D3d12info",
+        "Version": "844515124445184",
+        "pEngineName": "D3d12info",
+        "EngineVersion": "844515124445184"
+    },
+    "SystemInfo": {
+        "OS Info": {
+            "Windows version": "10.0.26200"
+        },
+        "System memory": {
+            "MEMORYSTATUSEX::ullTotalPhys": "33446285312",
+            "MEMORYSTATUSEX::ullTotalPageFile": "67806023680",
+            "MEMORYSTATUSEX::ullTotalVirtual": "140737488224256"
+        },
+        "DXGI_FEATURE": {
+            "DXGI_FEATURE_PRESENT_ALLOW_TEARING": true
+        },
+        "NvAPI_SYS_GetDriverAndBranchVersion": {
+            "pDriverVersion": 61692,
+            "szBuildBranchString": "r616_69"
+        },
+        "NvAPI_SYS_GetDisplayDriverInfo - NV_DISPLAY_DRIVER_INFO": {
+            "driverVersion": 61692,
+            "szBuildBranch": "r616_69",
+            "bIsDCHDriver": true,
+            "bIsNVIDIAStudioPackage": false,
+            "bIsNVIDIAGameReadyPackage": false,
+            "bIsNVIDIARTXProductionBranchPackage": false,
+            "bIsNVIDIARTXNewFeatureBranchPackage": false,
+            "szBuildBaseBranch": "R615"
+        },
+        "NvAPI_NGX_GetDriverFeatureSupport": {
+            "NV_NGX_DRIVER_FEATURE_ID_SET_FLIP_CONFIG_V2": true,
+            "NV_NGX_DRIVER_FEATURE_ID_FRAME_PRESENT_NOTIFY_HYBRID": true
+        },
+        "AGSGPUInfo": {
+            "driverVersion": "26.10.41.01-260811a-203304C-AMD-Software-Adrenalin-Edition",
+            "radeonSoftwareVersion": "26.8.1"
+        }
+    },
+    "Adapters": [
+        {
+            "DXGI_ADAPTER_DESC3": {
+                "Description": "AMD Radeon(TM) 890M Graphics",
+                "VendorId": 4098,
+                "DeviceId": 5390,
+                "SubSysId": 1344019717,
+                "Revision": 228,
+                "DedicatedVideoMemory": "481423360",
+                "DedicatedSystemMemory": "0",
+                "SharedSystemMemory": "16723142656",
+                "AdapterLuid": "00000000-000117EC",
+                "Flags": 44,
+                "GraphicsPreemptionGranularity": 1,
+                "ComputePreemptionGranularity": 2
+            },
+            "DXGI_QUERY_VIDEO_MEMORY_INFO[DXGI_MEMORY_SEGMENT_GROUP_LOCAL]": {
+                "Budget": "16399259648",
+                "AvailableForReservation": "8333847552"
+            },
+            "DXGI_QUERY_VIDEO_MEMORY_INFO[DXGI_MEMORY_SEGMENT_GROUP_NON_LOCAL]": {
+                "Budget": "0",
+                "AvailableForReservation": "0"
+            },
+            "CheckInterfaceSupport": {
+                "UMDVersion": "9007201289044972"
+            },
+            "AGSDeviceInfo": {
+                "adapterString": "AMD Radeon(TM) 890M Graphics",
+                "asicFamily": 9,
+                "isAPU": true,
+                "isExternal": false,
+                "vendorId": 4098,
+                "deviceId": 5390,
+                "revisionId": 228,
+                "numCUs": 16,
+                "numWGPs": 8,
+                "numROPs": 16,
+                "coreClock": 3100,
+                "memoryClock": 1066,
+                "memoryBandwidth": 0,
+                "teraFlops": 12.6976,
+                "localMemoryInBytes": "536870912",
+                "sharedMemoryInBytes": "16723142656"
+            },
+            "AMD device_info::CardInfo": {
+                "asicType": 62,
+                "generation": 15,
+                "APU": true,
+                "GfxTarget": "gfx1150",
+                "MarketingName": "AMD Radeon(TM) 890M Graphics"
+            },
+            "AMD device_info::DeviceInfo": {
+                "NumShaderEngines": 1,
+                "MaxWavePerSIMD": 16,
+                "ClocksPrim": 1,
+                "NumSQMaxCounters": 8,
+                "NumPrimPipes": 1,
+                "WaveSize": 64,
+                "NumSHPerSE": 2,
+                "NumCUs": 16,
+                "NumSIMDPerCU": 2,
+                "NumVGPRPerSIMD": 1024,
+                "TotalSIMDs": 32,
+                "TotalShaderArrays": 2,
+                "TotalVGPRs": 32768,
+                "TotalLDSSizeInBytes": 1048576
+            },
+            "VkPhysicalDeviceProperties": {
+                "apiVersion": "1.4.349",
+                "driverVersion": 8389003,
+                "vendorID": 4098,
+                "deviceID": 5390,
+                "deviceType": 1,
+                "deviceName": "AMD Radeon(TM) 890M Graphics"
+            },
+            "VkPhysicalDeviceIDProperties": {
+                "deviceUUID": "00000000660000000000000000000000",
+                "driverUUID": "414D442D57494E2D4452560000000000",
+                "deviceLUID": "EC17010000000000"
+            },
+            "VkPhysicalDeviceVulkan12Properties": {
+                "driverID": 1,
+                "driverName": "AMD proprietary driver",
+                "driverInfo": "26.8.1 (LLPC)"
+            }
+        },
+        {
+            "DXGI_ADAPTER_DESC3": {
+                "Description": "NVIDIA GeForce RTX 5060 Laptop GPU",
+                "VendorId": 4318,
+                "DeviceId": 11545,
+                "SubSysId": 1623072005,
+                "Revision": 161,
+                "DedicatedVideoMemory": "8281653248",
+                "DedicatedSystemMemory": "0",
+                "SharedSystemMemory": "16723142656",
+                "AdapterLuid": "00000000-00014028",
+                "Flags": 44,
+                "GraphicsPreemptionGranularity": 3,
+                "ComputePreemptionGranularity": 1
+            },
+            "DXGI_QUERY_VIDEO_MEMORY_INFO[DXGI_MEMORY_SEGMENT_GROUP_LOCAL]": {
+                "Budget": "7476346880",
+                "AvailableForReservation": "3872391168"
+            },
+            "DXGI_QUERY_VIDEO_MEMORY_INFO[DXGI_MEMORY_SEGMENT_GROUP_NON_LOCAL]": {
+                "Budget": "15917836288",
+                "AvailableForReservation": "8093135872"
+            },
+            "CheckInterfaceSupport": {
+                "UMDVersion": "9007199255791260"
+            },
+            "NvPhysicalGpuHandle": {
+                "adapterType": 1,
+                "NvAPI_GPU_GetSystemType": 1,
+                "NvAPI_GPU_GetFullName": "NVIDIA GeForce RTX 5060 Laptop GPU",
+                "NvAPI_GPU_GetPCIIdentifiers - pDeviceID": 756617438,
+                "NvAPI_GPU_GetPCIIdentifiers - pSubSystemId": 1623072005,
+                "NvAPI_GPU_GetPCIIdentifiers - pRevisionId": 161,
+                "NvAPI_GPU_GetPCIIdentifiers - pExtDeviceId": 11545,
+                "NvAPI_GPU_GetGPUType": 2,
+                "NvAPI_GPU_GetBusType": 3,
+                "NvAPI_GPU_GetVbiosRevision": 2550554368,
+                "NvAPI_GPU_GetVbiosOEMRevision": 49,
+                "NvAPI_GPU_GetVbiosVersionString": "98.06.5f.00.31",
+                "NvAPI_GPU_GetPhysicalFrameBufferSize": "8318400",
+                "NvAPI_GPU_GetVirtualFrameBufferSize": "8346624",
+                "NvAPI_GPU_GetArchInfo - NV_GPU_ARCH_INFO::architecture_id": 432,
+                "NvAPI_GPU_GetArchInfo - NV_GPU_ARCH_INFO::implementation_id": 6,
+                "NvAPI_GPU_GetArchInfo - NV_GPU_ARCH_INFO::revision_id": 161,
+                "NvAPI_GPU_GetVRReadyData - NV_GPU_VR_READY::isVRReady": true,
+                "NvAPI_GPU_QueryIlluminationSupport(NV_GPU_IA_LOGO_BRIGHTNESS)": false,
+                "NvAPI_GPU_QueryIlluminationSupport(NV_GPU_IA_SLI_BRIGHTNESS)": false,
+                "NvAPI_GPU_QueryWorkstationFeatureSupport(NV_GPU_WORKSTATION_FEATURE_TYPE_NVIDIA_RTX_VR_READY)": -104,
+                "NvAPI_GPU_QueryWorkstationFeatureSupport(NV_GPU_WORKSTATION_FEATURE_TYPE_PROVIZ)": -104,
+                "NvAPI_GPU_GetMemoryInfoEx - NV_GPU_MEMORY_INFO_EX::dedicatedVideoMemory": "8546942976",
+                "NvAPI_GPU_GetMemoryInfoEx - NV_GPU_MEMORY_INFO_EX::availableDedicatedVideoMemory": "8281653248",
+                "NvAPI_GPU_GetMemoryInfoEx - NV_GPU_MEMORY_INFO_EX::systemVideoMemory": "0",
+                "NvAPI_GPU_GetMemoryInfoEx - NV_GPU_MEMORY_INFO_EX::sharedSystemMemory": "16723140608",
+                "NvAPI_GPU_GetMemoryInfoEx - NV_GPU_MEMORY_INFO_EX::curAvailableDedicatedVideoMemory": "8281653248",
+                "NvAPI_GPU_GetMemoryInfoEx - NV_GPU_MEMORY_INFO_EX::dedicatedVideoMemoryEvictionsSize": "97284096",
+                "NvAPI_GPU_GetMemoryInfoEx - NV_GPU_MEMORY_INFO_EX::dedicatedVideoMemoryEvictionCount": "216",
+                "NvAPI_GPU_GetMemoryInfoEx - NV_GPU_MEMORY_INFO_EX::dedicatedVideoMemoryPromotionsSize": "85143552",
+                "NvAPI_GPU_GetMemoryInfoEx - NV_GPU_MEMORY_INFO_EX::dedicatedVideoMemoryPromotionCount": "184",
+                "NvAPI_GPU_GetShaderSubPipeCount": 13,
+                "NvAPI_GPU_GetGpuCoreCount": 3328,
+                "NvAPI_GPU_GetECCStatusInfo - NV_GPU_ECC_STATUS_INFO::isSupported": false,
+                "NvAPI_GPU_GetECCStatusInfo - NV_GPU_ECC_STATUS_INFO::configurationOptions": 0,
+                "NvAPI_GPU_GetECCStatusInfo - NV_GPU_ECC_STATUS_INFO::isEnabled": false,
+                "NvAPI_GPU_GetRamBusWidth": 128,
+                "NvAPI_GPU_GetGPUInfo - NV_GPU_INFO::bIsExternalGpu": false,
+                "NvAPI_GPU_GetGPUInfo - NV_GPU_INFO::rayTracingCores": 26,
+                "NvAPI_GPU_GetGPUInfo - NV_GPU_INFO::tensorCores": 104,
+                "NvAPI_GPU_GetUUID - NV_GPU_UUID::uuid": "1BC89CDFE5AFC253C2CDE5301CF8E585",
+                "NvAPI_GPU_GetOverclockStatus - NV_GPU_OVERCLOCK_STATUS::bOverclockingDetected": true,
+                "NvAPI_GPU_NVLINK_GetCapsEx": {
+                    "capsTbl": 0,
+                    "lowestNvlinkVersion": 0,
+                    "highestNvlinkVersion": 0,
+                    "lowestNciVersion": 0,
+                    "highestNciVersion": 0,
+                    "links": {
+                        "lenMasks": 0,
+                        "masks": []
+                    }
+                },
+                "NvAPI_GPU_NVLINK_GetStatusEx": {
+                    "activeLinks": {
+                        "lenMasks": 0,
+                        "masks": []
+                    },
+                    "linkInfo": []
+                }
+            },
+            "VkPhysicalDeviceProperties": {
+                "apiVersion": "1.4.351",
+                "driverVersion": 2585198592,
+                "vendorID": 4318,
+                "deviceID": 11545,
+                "deviceType": 2,
+                "deviceName": "NVIDIA GeForce RTX 5060 Laptop GPU"
+            },
+            "VkPhysicalDeviceIDProperties": {
+                "deviceUUID": "1BC89CDFE5AFC253C2CDE5301CF8E585",
+                "driverUUID": "16EDF6112967515EB44EA51F39E45424",
+                "deviceLUID": "2840010000000000"
+            },
+            "VkPhysicalDeviceVulkan12Properties": {
+                "driverID": 4,
+                "driverName": "NVIDIA",
+                "driverInfo": "616.92"
+            }
+        },
+        {
+            "DXGI_ADAPTER_DESC3": {
+                "Description": "Microsoft Basic Render Driver",
+                "VendorId": 5140,
+                "DeviceId": 140,
+                "SubSysId": 0,
+                "Revision": 0,
+                "DedicatedVideoMemory": "0",
+                "DedicatedSystemMemory": "0",
+                "SharedSystemMemory": "16723142656",
+                "AdapterLuid": "00000000-00013FB3",
+                "Flags": 46,
+                "GraphicsPreemptionGranularity": 4,
+                "ComputePreemptionGranularity": 4
+            },
+            "DXGI_QUERY_VIDEO_MEMORY_INFO[DXGI_MEMORY_SEGMENT_GROUP_LOCAL]": {
+                "Budget": "15917836288",
+                "AvailableForReservation": "8093135872"
+            },
+            "DXGI_QUERY_VIDEO_MEMORY_INFO[DXGI_MEMORY_SEGMENT_GROUP_NON_LOCAL]": {
+                "Budget": "0",
+                "AvailableForReservation": "0"
+            },
+            "CheckInterfaceSupport": {
+                "UMDVersion": "2814751477605978"
+            }
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+
+  Windows ML CLI
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                          ┃
+┃  ██      ██  ██████  ██      ██  ██      ██  ██          ┃
+┃  ██▓▓    ██▓▓  ██▓▓▓▓████    ██▓▓████  ████▓▓██▓▓        ┃
+┃  ██▓▓██  ██▓▓  ██▓▓  ██▓▓██  ██▓▓██▓▓██  ██▓▓██▓▓        ┃
+┃  ████  ████▓▓  ██▓▓  ██▓▓  ████▓▓██▓▓  ▓▓██▓▓██▓▓        ┃
+┃  ██▓▓▓▓  ██▓▓██████  ██▓▓    ██▓▓██▓▓    ██▓▓██████████  ┃
+┃    ▓▓      ▓▓  ▓▓▓▓▓▓  ▓▓      ▓▓  ▓▓      ▓▓  ▓▓▓▓▓▓▓▓  ┃
+┃                                                          ┃
+┃                v0.4.0  ·  CPU · GPU · NPU                ┃
+┃                                                          ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  Windows ML  ·  Model conversion & optimization
+
+Usage: winml [OPTIONS] [COMMAND] [ARGS]...
+
+  WinML CLI - Accelerate Model Deployment on WinML.
+
+  Universal ONNX export with various WinML execution providers support.
+
+Options:
+  --version      Show the version and exit.
+  -v, --verbose  Increase verbosity (-v=INFO, -vv=DEBUG)
+  -q, --quiet    Quiet mode - errors only to stderr
+  --no-color     Disable colored output (also via NO_COLOR=1 or CI=true).
+  -h, --help     Show this message and exit.
+
+Commands:
+  analyze   Analyze ONNX model for runtime support with live progress.
+  build     Build a WinML-optimized ONNX model from HuggingFace or ONNX.
+  catalog   Browse WinML CLI's curated built-in model catalog.
+  compile   Compile ONNX to an EP-specific format.
+  config    Generate WinMLBuildConfig for a HuggingFace model or .onnx file.
+  eval      Evaluate a model for a task.
+  export    Export HuggingFace model to ONNX format with HTP.
+  inspect   Inspect input model's WinML CLI configuration.
+  optimize  Optimize ONNX model with capability-driven optimizer.
+  perf      Benchmark model inference performance.
+  quantize  Quantize an ONNX model (QDQ, RTN weight-only, or FP16).
+  sys       Display system information for WinML CLI export.

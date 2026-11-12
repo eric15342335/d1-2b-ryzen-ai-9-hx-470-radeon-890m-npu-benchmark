@@ -1,0 +1,35 @@
+2026-11-13 01:11:18.6421133 [W:onnxruntime:Default, onnxruntime_pybind_module.cc:45 onnxruntime::python::CreateOrtEnv] Init provider bridge failed.
+Usage: winml sys [OPTIONS]
+
+  Display system information for WinML CLI export.
+
+  This command gathers and displays information relevant to ONNX model export,
+  including Python version, library versions, hardware capabilities, and
+  backend SDK availability.
+
+  Use this to diagnose issues with model export or verify your environment is
+  properly configured.
+
+  \b Examples:     # Display system info (human-readable format)     winml sys
+
+      # Get output as JSON for scripting     winml sys --format json
+
+      # Show detailed info     winml sys --verbose
+
+      # Compact format for quick overview     winml sys --format compact
+
+      # List available devices     winml sys --list-device
+
+      # List execution providers as JSON     winml sys --list-ep --format json
+
+Options:
+  -f, --format [text|json|compact]
+                                  Output format (default: text). 'json' prints
+                                  structured JSON to stdout.
+  --list-device                   List available devices in priority order
+  --list-ep                       List available execution providers
+  -v, --verbose                   Increase verbosity (-v=INFO, -vv=DEBUG)
+  -q, --quiet                     Quiet mode - errors only to stderr
+  --no-color                      Disable colored output (also via NO_COLOR=1
+                                  or CI=true).
+  -h, --help                      Show this message and exit.

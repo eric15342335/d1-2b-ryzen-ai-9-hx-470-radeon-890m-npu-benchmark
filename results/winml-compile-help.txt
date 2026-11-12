@@ -1,0 +1,67 @@
+2026-11-13 01:11:37.4155307 [W:onnxruntime:Default, onnxruntime_pybind_module.cc:45 onnxruntime::python::CreateOrtEnv] Init provider bridge failed.
+Usage: winml compile [OPTIONS]
+
+  Compile ONNX to an EP-specific format.
+
+  This command compiles an ONNX model to an EP-specific format (e.g., QNN
+  EPContext).
+
+  \b Examples:     # Compile for NPU (default, uses QNN/VitisAI)     winml
+  compile -m model.onnx
+
+      # Compile for NPU with explicit VitisAI EP     winml compile -m
+      model.onnx --ep vitisai
+
+      # Compile for GPU with MIGraphX     winml compile -m model.onnx --device
+      gpu --ep migraphx
+
+      # Compile using QAIRT SDK     winml compile -m model.onnx --compiler
+      qairt --qnn-sdk-root /path/to/sdk
+
+Options:
+  -m, --model PATH                Input ONNX model file. Repeat -m to compile
+                                  multiple ONNX models with a shared EP
+                                  context (weight sharing). Required unless
+                                  --list.
+  -o, --output PATH               Output file path (e.g., model_compiled.onnx)
+  --overwrite / --no-overwrite    Overwrite an existing output instead of
+                                  erroring out  [default: no-overwrite]
+  --output-dir PATH               Output directory (default: same as input
+                                  model)
+  -d, --device [auto|cpu|gpu|npu]
+                                  Target device (default: deduced from --ep,
+                                  or 'npu' if neither given)
+  --device-luid TEXT              Select a specific adapter within the
+                                  resolved EP/device pair using its LUID from
+                                  'winml sys' (0xHHHHHHHH_0xLLLLLLLL). Only
+                                  supported for experimental compiler modes.
+  --ep EP_AT_SOURCE               Force specific EP, optionally pinned to a
+                                  source (e.g. 'openvino@pypi'). Overrides
+                                  device-to-provider mapping.
+  --ep-options TEXT               EP provider option as KEY=VALUE
+                                  (repeatable). Forwarded to the command's
+                                  execution-provider session (e.g. --ep-
+                                  options htp_performance_mode=burst).
+                                  Duplicate keys: later occurrence wins.
+                                  Applied to the compilation session;
+                                  overrides matching compile.provider_options
+                                  keys from --config.
+  --validate / --no-validate      Validate compiled ONNX model with inference.
+  --compiler [ort|ort_session|qairt]
+                                  Compiler backend (default: ort).
+                                  'ort_session' compiles via
+                                  ort.InferenceSession (ep.context_enable) —
+                                  required for shared-context multi-model.
+  --qnn-sdk-root PATH             Path to QAIRT SDK root
+  --embed / --no-embed            Embed EP context in ONNX file (default:
+                                  external .bin file)  [default: no-embed]
+  --list                          List available compilers for the selected
+                                  device and exit
+  -c, --config PATH               WinMLBuildConfig JSON file (from winml
+                                  config). Provides defaults; explicit CLI
+                                  options take precedence.
+  -v, --verbose                   Increase verbosity (-v=INFO, -vv=DEBUG)
+  -q, --quiet                     Quiet mode - errors only to stderr
+  --no-color                      Disable colored output (also via NO_COLOR=1
+                                  or CI=true).
+  -h, --help                      Show this message and exit.
