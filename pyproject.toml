@@ -1,7 +1,7 @@
 [project]
-name = "d1-2b-igpu-npu-perf-bench"
+name = "d1-2b-ryzen-ai-9-hx-470-radeon-890m-npu-benchmark"
 version = "0.1.0"
-description = "Reproducible d1-2B decision benchmarks on CPU, Radeon 890M iGPU and Ryzen AI NPU"
+description = "Reproducible d1-2B decision benchmarks on a Ryzen AI 9 HX 470: CPU, Radeon 890M iGPU and XDNA 2 NPU"
 requires-python = ">=3.13"
 dependencies = [
     "huggingface-hub>=2.4.0",

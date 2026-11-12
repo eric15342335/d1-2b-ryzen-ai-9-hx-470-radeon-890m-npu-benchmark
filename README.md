@@ -1,4 +1,4 @@
-# d1-2B on Radeon 890M and Ryzen AI NPU
+# d1-2B on Ryzen AI 9 HX 470: Radeon 890M iGPU vs XDNA 2 NPU vs CPU
 
 Decision latency of LiquidAI's [d1-2B](https://huggingface.co/LiquidAI/d1-2B) on one laptop, a MECHREVO Wing Dragon 15 Air (Ryzen AI 9 HX 470, 32 GB, Windows 11 25H2): CPU, the Radeon 890M iGPU through ONNX Runtime WebGPU and llama.cpp Vulkan, and the XDNA NPU through Tomoali's RyzenAILight conversion.
 

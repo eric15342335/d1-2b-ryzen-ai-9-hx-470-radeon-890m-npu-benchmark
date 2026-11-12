@@ -145,7 +145,7 @@ wheels = [
 ]
 
 [[package]]
-name = "d1-2b-igpu-npu-perf-bench"
+name = "d1-2b-ryzen-ai-9-hx-470-radeon-890m-npu-benchmark"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
