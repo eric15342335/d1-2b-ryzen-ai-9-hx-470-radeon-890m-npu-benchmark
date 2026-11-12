@@ -21,7 +21,7 @@
 
 ## Session: 2026-11-13, CLI and publishing
 
-- Replaced the scripts with the `d1bench` package (Typer, Rich, loguru) and `benchmarks.toml`. Old scripts kept in `.cache/legacy-scripts/`.
+- Replaced the scripts with the `d1bench` package (Typer, Rich, loguru) and `benchmarks.toml`. The original scripts are in git history (`feat: add original benchmark scripts`).
 - `d1bench report` reproduces `comparison.json` and `correctness.json` exactly.
 - Ran the WebGPU, NPU and llama Q8 runners on hardware (5 samples, scratch output). DirectML q4 fails as expected through the CLI.
 - Redacted the checkout path and home directory from `results/`, and added `redact()` for future run outputs.
