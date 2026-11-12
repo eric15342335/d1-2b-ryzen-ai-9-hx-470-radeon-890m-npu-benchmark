@@ -1,0 +1,28 @@
+[project]
+name = "d1-2b-igpu-npu-perf-bench"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "huggingface-hub>=2.4.0",
+    "onnx>=1.23.2",
+    "onnxruntime-directml==1.25.0.dev20260125001",
+    "pillow>=13.0.0",
+    "torch>=2.15.0",
+    "torchvision>=0.29.2",
+    "transformers>=5.19",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+torchvision = { index = "pytorch-cpu" }
+onnxruntime-directml = { index = "ort-nightly" }
+
+[[tool.uv.index]]
+name = "ort-nightly"
+url = "https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/ORT-Nightly/pypi/simple/"
+explicit = true
