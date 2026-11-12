@@ -1,0 +1,1173 @@
+0.00.917.484 I srv  llama_server: initializing ...
+0.00.917.498 I cmn  common_param: common_params_print_info: build 12110 (cd959bae9) with Clang 20.1.8 for Windows x86_64
+0.00.917.499 I cmn  common_param: common_params_print_info: verbosity = 4 (adjust with the `-lv N` CLI arg)
+0.00.917.499 I cmn  common_param: device_info:
+0.00.920.511 I cmn  common_param:   - Vulkan0 : AMD Radeon(TM) 890M Graphics (16460 MiB, 15637 MiB free)
+0.00.923.446 I cmn  common_param:   - Vulkan1 : NVIDIA GeForce RTX 5060 Laptop GPU (7898 MiB, 7130 MiB free)
+0.00.923.455 I cmn  common_param:   - CPU     : AMD Ryzen AI 9 HX 470 w/ Radeon 890M             (31896 MiB, 19266 MiB free)
+0.00.923.513 I cmn  common_param: system_info: n_threads = 4 (n_threads_batch = 4) / 24 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | AVX512 = 1 | AVX512_VBMI = 1 | AVX512_VNNI = 1 | AVX512_BF16 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.00.924.035 I srv  init_listene: running without SSL
+0.00.924.212 I srv          init: using 23 threads for HTTP server
+0.00.924.274 W srv  server_setup: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.935.505 I srv    load_model: loading model 'models/d1-2B-GGUF/d1-2B-Q8_0.gguf'
+0.00.935.511 I srv    load_model: local path 'models/d1-2B-GGUF/d1-2B-Q8_0.gguf'
+0.00.935.525 I cmn  common_fit_a: fitting params to device memory ...
+0.00.935.525 I cmn  common_fit_a: (for bugs during this step try to reproduce them with -fit off, or provide --verbose logs if the bug only occurs with -fit on)
+0.00.935.966 I common_params_fit_impl: getting device memory data for initial parameters:
+0.01.152.314 I common_memory_breakdown_print: | memory breakdown [MiB]                 | total    free    self   model   context   compute    unaccounted |
+0.01.152.320 I common_memory_breakdown_print: |   - Vulkan0 (Radeon(TM) 890M Graphics) | 16460 = 15636 + (2012 =  1752 +       0 +     260) +       -1189 |
+0.01.152.320 I common_memory_breakdown_print: |   - Host                               |                   345 =   265 +       0 +      80                |
+0.01.193.191 I common_params_fit_impl: projected to use 2012 MiB of device memory vs. 15636 MiB of free device memory
+0.01.193.198 I common_params_fit_impl: will leave 13624 >= 1024 MiB of free device memory, no changes needed
+0.01.193.199 I common_fit_params: successfully fit params to free device memory
+0.01.194.639 I common_fit_params: fitting params to free memory took 0.26 seconds
+0.01.232.178 I llama_model_loader: loaded meta data with 45 key-value pairs and 287 tensors from models/d1-2B-GGUF/d1-2B-Q8_0.gguf (version GGUF V3 (latest))
+0.01.232.190 I llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+0.01.232.193 I llama_model_loader: - kv   0:                       general.architecture str              = lfm3
+0.01.232.194 I llama_model_loader: - kv   1:                               general.type str              = model
+0.01.232.194 I llama_model_loader: - kv   2:                               general.name str              = D1 2B
+0.01.232.195 I llama_model_loader: - kv   3:                           general.basename str              = d1
+0.01.232.195 I llama_model_loader: - kv   4:                         general.size_label str              = 2B
+0.01.232.196 I llama_model_loader: - kv   5:                            general.license str              = other
+0.01.232.196 I llama_model_loader: - kv   6:                       general.license.name str              = lfm1.0
+0.01.232.197 I llama_model_loader: - kv   7:                       general.license.link str              = LICENSE
+0.01.232.201 I llama_model_loader: - kv   8:                               general.tags arr[str,12]      = ["liquid", "lfm3", "edge", "decision"...
+0.01.232.203 I llama_model_loader: - kv   9:                          general.languages arr[str,16]      = ["en", "ar", "zh", "fr", "de", "it", ...
+0.01.232.204 I llama_model_loader: - kv  10:                           lfm3.block_count u32              = 24
+0.01.232.205 I llama_model_loader: - kv  11:                        lfm3.context_length u32              = 128000
+0.01.232.205 I llama_model_loader: - kv  12:                      lfm3.embedding_length u32              = 2048
+0.01.232.206 I llama_model_loader: - kv  13:                   lfm3.feed_forward_length u32              = 7680
+0.01.232.206 I llama_model_loader: - kv  14:                  lfm3.attention.head_count u32              = 16
+0.01.232.208 I llama_model_loader: - kv  15:               lfm3.attention.head_count_kv arr[i32,24]      = [0, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, ...
+0.01.232.215 I llama_model_loader: - kv  16:                        lfm3.rope.freq_base f32              = 1000000.000000
+0.01.232.216 I llama_model_loader: - kv  17:                    lfm3.rope.freq_base_swa f32              = 10000.000000
+0.01.232.218 I llama_model_loader: - kv  18:      lfm3.attention.layer_norm_rms_epsilon f32              = 0.000010
+0.01.232.218 I llama_model_loader: - kv  19:                  lfm3.attention.key_length u32              = 128
+0.01.232.219 I llama_model_loader: - kv  20:                lfm3.attention.value_length u32              = 128
+0.01.232.219 I llama_model_loader: - kv  21:                  lfm3.rope.dimension_count u32              = 128
+0.01.232.221 I llama_model_loader: - kv  22:      lfm3.attention.sliding_window_pattern arr[bool,24]     = [false, false, false, false, true, fa...
+0.01.232.221 I llama_model_loader: - kv  23:              lfm3.attention.sliding_window u32              = 256
+0.01.232.222 I llama_model_loader: - kv  24:                     lfm3.shortconv.l_cache u32              = 7
+0.01.232.222 I llama_model_loader: - kv  25:                      lfm3.attention.causal bool             = false
+0.01.232.222 I llama_model_loader: - kv  26:                         lfm3.decision.type str              = lfm3-d1
+0.01.232.224 I llama_model_loader: - kv  27:             lfm3.decision.temperature.noul f32              = 1.337398
+0.01.232.224 I llama_model_loader: - kv  28:           lfm3.decision.temperature.choice f32              = 1.337398
+0.01.232.225 I llama_model_loader: - kv  29:            lfm3.decision.temperature.score f32              = 1.337398
+0.01.232.225 I llama_model_loader: - kv  30:                       tokenizer.ggml.model str              = gpt2
+0.01.232.226 I llama_model_loader: - kv  31:                         tokenizer.ggml.pre str              = lfm2
+0.01.232.227 I llama_model_loader: - kv  32:                      tokenizer.ggml.tokens arr[str,128000]  = ["ĊĊĊĊĊĊĊĊĊĊ", "ĊĊĊĊĊ�...
+0.01.232.228 I llama_model_loader: - kv  33:                  tokenizer.ggml.token_type arr[i32,128000]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+0.01.232.230 I llama_model_loader: - kv  34:                      tokenizer.ggml.merges arr[str,293320]  = ["ĊĊĊĊĊĊĊĊĊ Ċ", "ĊĊĊĊĊ...
+0.01.232.230 I llama_model_loader: - kv  35:                tokenizer.ggml.bos_token_id u32              = 124894
+0.01.232.230 I llama_model_loader: - kv  36:                tokenizer.ggml.eos_token_id u32              = 124900
+0.01.232.231 I llama_model_loader: - kv  37:            tokenizer.ggml.padding_token_id u32              = 124893
+0.01.232.231 I llama_model_loader: - kv  38:               tokenizer.ggml.add_bos_token bool             = false
+0.01.232.232 I llama_model_loader: - kv  39:               tokenizer.ggml.add_eos_token bool             = false
+0.01.232.234 I llama_model_loader: - kv  40:                    tokenizer.chat_template str              = {{- bos_token -}}\n{%- set preserve_th...
+0.01.232.235 I llama_model_loader: - kv  41:          tokenizer.chat_template.systemone str              = <|startoftext|><|im_start|>user\n{% fo...
+0.01.232.236 I llama_model_loader: - kv  42:                   tokenizer.chat_templates arr[str,1]       = ["systemone"]
+0.01.232.237 I llama_model_loader: - kv  43:               general.quantization_version u32              = 2
+0.01.232.237 I llama_model_loader: - kv  44:                          general.file_type u32              = 7
+0.01.232.238 I llama_model_loader: - type  f32:  133 tensors
+0.01.232.238 I llama_model_loader: - type q8_0:  154 tensors
+0.01.232.239 I print_info: file format = GGUF V3 (latest)
+0.01.232.240 I print_info: file type   = Q8_0
+0.01.232.241 I print_info: file size   = 1.71 GiB (8.51 BPW) 
+0.01.235.545 I llama_prepare_model_devices: using device Vulkan0 (AMD Radeon(TM) 890M Graphics) (unknown id) - 15637 MiB free
+0.01.322.071 I load: 0 unused tokens
+0.01.336.896 I load: printing all EOG tokens:
+0.01.336.902 I load:   - 124895 ('<|endoftext|>')
+0.01.336.902 I load:   - 124900 ('<|im_end|>')
+0.01.337.033 I load: special tokens cache size = 138
+0.01.356.907 I load: token to piece cache size = 0.7667 MB
+0.01.356.922 I print_info: arch                  = lfm3
+0.01.356.922 I print_info: vocab_only            = 0
+0.01.356.923 I print_info: no_alloc              = 0
+0.01.356.923 I print_info: n_ctx_train           = 128000
+0.01.356.924 I print_info: n_embd_inp            = 2048
+0.01.356.925 I print_info: n_embd                = 2048
+0.01.356.925 I print_info: n_embd_out            = 2048
+0.01.356.926 I print_info: n_layer               = 24
+0.01.356.926 I print_info: n_layer_all           = 24
+0.01.356.939 I print_info: n_head                = 16
+0.01.356.946 I print_info: n_head_kv             = [0, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0]
+0.01.356.946 I print_info: n_rot                 = 128
+0.01.356.946 I print_info: n_swa                 = 256
+0.01.356.947 I print_info: is_swa_any            = 1
+0.01.356.947 I print_info: non_causal_type       = 3
+0.01.356.948 I print_info: n_embd_head_k         = 128
+0.01.356.948 I print_info: n_embd_head_v         = 128
+0.01.356.953 I print_info: n_gqa                 = [0, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0]
+0.01.356.959 I print_info: n_embd_k_gqa          = [0, 0, 512, 0, 512, 0, 512, 0, 512, 0, 512, 0, 512, 0, 512, 0, 512, 0, 512, 0, 512, 0, 512, 0]
+0.01.356.963 I print_info: n_embd_v_gqa          = [0, 0, 512, 0, 512, 0, 512, 0, 512, 0, 512, 0, 512, 0, 512, 0, 512, 0, 512, 0, 512, 0, 512, 0]
+0.01.356.965 I print_info: f_norm_eps            = 0.0e+00
+0.01.356.966 I print_info: f_norm_rms_eps        = 1.0e-05
+0.01.356.967 I print_info: f_clamp_kqv           = 0.0e+00
+0.01.356.967 I print_info: f_max_alibi_bias      = 0.0e+00
+0.01.356.967 I print_info: f_logit_scale         = 0.0e+00
+0.01.356.968 I print_info: f_attn_scale          = 0.0e+00
+0.01.356.968 I print_info: f_attn_value_scale    = 0.0000
+0.01.356.970 I print_info: n_ff                  = 7680
+0.01.356.971 I print_info: n_expert              = 0
+0.01.356.971 I print_info: n_expert_used         = 0
+0.01.356.971 I print_info: n_expert_groups       = 0
+0.01.356.971 I print_info: n_group_used          = 0
+0.01.356.972 I print_info: causal attn           = 0
+0.01.356.972 I print_info: pooling type          = -1
+0.01.356.972 I print_info: rope type             = 2
+0.01.356.973 I print_info: rope scaling          = linear
+0.01.356.973 I print_info: freq_base_train       = 1000000.0
+0.01.356.975 I print_info: freq_scale_train      = 1
+0.01.356.975 I print_info: freq_base_swa         = 10000.0
+0.01.356.976 I print_info: freq_scale_swa        = 1
+0.01.356.976 I print_info: n_embd_head_k_swa     = 128
+0.01.356.976 I print_info: n_embd_head_v_swa     = 128
+0.01.356.977 I print_info: n_rot_swa             = 128
+0.01.356.977 I print_info: n_ctx_orig_yarn       = 128000
+0.01.356.977 I print_info: rope_yarn_log_mul     = 0.0000
+0.01.356.978 I print_info: rope_finetuned        = unknown
+0.01.356.979 I print_info: model type            = 1.7B
+0.01.356.979 I print_info: model params          = 1.73 B
+0.01.356.980 I print_info: general.name          = D1 2B
+0.01.356.981 I print_info: vocab type            = BPE
+0.01.356.981 I print_info: n_vocab               = 128000
+0.01.356.981 I print_info: n_merges              = 293320
+0.01.356.982 I print_info: BOS token             = 124894 '<|startoftext|>'
+0.01.356.982 I print_info: EOS token             = 124900 '<|im_end|>'
+0.01.356.982 I print_info: EOT token             = 124900 '<|im_end|>'
+0.01.356.983 I print_info: PAD token             = 124893 '<|pad|>'
+0.01.356.983 I print_info: LF token              = 207 'Ċ'
+0.01.356.984 I print_info: EOG token             = 124895 '<|endoftext|>'
+0.01.356.984 I print_info: EOG token             = 124900 '<|im_end|>'
+0.01.356.984 I print_info: max token length      = 386
+0.01.364.514 I load_tensors: loading model tensors, this can take a while... (load_mode = none)
+0.01.537.985 I load_tensors: offloading output layer to GPU
+0.01.537.992 I load_tensors: offloading 23 repeating layers to GPU
+0.01.537.992 I load_tensors: offloaded 25/25 layers to GPU
+0.01.537.998 I load_tensors:      Vulkan0 model buffer size =  1752.84 MiB
+0.01.537.999 I load_tensors:  Vulkan_Host model buffer size =   265.63 MiB
+0.01.898.450 I cmn  common_init_: added <|endoftext|> logit bias = -inf
+0.01.898.459 I cmn  common_init_: added <|im_end|> logit bias = -inf
+0.01.900.250 I llama_context: constructing llama_context
+0.01.900.260 I llama_context: n_seq_max             = 1
+0.01.900.260 I llama_context: n_ctx                 = 2048
+0.01.900.261 I llama_context: n_ctx_seq             = 2048
+0.01.900.261 I llama_context: n_batch               = 2048
+0.01.900.261 I llama_context: n_ubatch              = 2048
+0.01.900.262 I llama_context: causal_attn           = 0
+0.01.900.262 I llama_context: flash_attn            = auto
+0.01.900.263 I llama_context: kv_unified            = false
+0.01.900.266 I llama_context: freq_base             = 1000000.0
+0.01.900.269 I llama_context: freq_scale            = 1
+0.01.900.269 I llama_context: n_rs_seq              = 0
+0.01.900.270 I llama_context: n_outputs_max         = 1
+0.01.900.270 I llama_context: n_outputs_max_per_seq = 1
+0.01.900.271 I llama_context: n_ctx_seq (2048) < n_ctx_train (128000) -- the full capacity of the model will not be utilized
+0.01.900.921 I llama_context: Vulkan_Host  output buffer size =     0.49 MiB
+0.01.900.931 I sched_reserve: reserving ...
+0.01.902.573 I resolve_fused_ops: Flash Attention enabled
+0.01.902.577 I resolve_fused_ops: resolving fused DeepSeek V4 HC support:
+0.01.903.606 I resolve_fused_ops: fused DeepSeek V4 HC pre enabled
+0.01.904.584 I resolve_fused_ops: fused DeepSeek V4 HC comb enabled
+0.01.905.603 I resolve_fused_ops: fused DeepSeek V4 HC post enabled
+0.01.939.549 I sched_reserve:    Vulkan0 compute buffer size =   260.02 MiB
+0.01.939.554 I sched_reserve: Vulkan_Host compute buffer size =    80.04 MiB
+0.01.939.556 I sched_reserve: graph: nodes = 820, splits = 2, input objects = 4, input tensors = 8
+0.01.939.558 I sched_reserve: reserve took 38.62 ms, sched copies = 1
+0.01.939.649 I cmn          init: llama threadpool init, n_threads = 4
+0.01.940.528 I cmn  common_init_: warming up the model with an empty run - please wait ... (--no-warmup to disable)
+0.02.233.895 I srv          init: decision model type: lfm3-d1
+0.02.234.390 W srv    load_model: speculative decoding not supported by this context
+0.02.234.396 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 2048, kv_unified = 'false'
+0.02.234.404 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 2048
+0.02.234.622 I srv    load_model: prompt cache is disabled - use `--cache-ram N` to enable it
+0.02.234.628 I srv    load_model: for more info see https://github.com/ggml-org/llama.cpp/pull/16391
+0.02.234.629 I srv    load_model: context checkpoints enabled, max = 32, min spacing = 8192
+0.02.235.172 W srv          init: --cache-idle-slots requires --cache-ram, disabling
+0.02.242.635 I srv          init: init: chat template, example_format: '<|startoftext|><|im_start|>system
+You are a helpful assistant<|im_end|>
+<|im_start|>user
+Hello<|im_end|>
+<|im_start|>assistant
+Hi there<|im_end|>
+<|im_start|>user
+How are you?<|im_end|>
+<|im_start|>assistant
+<think>'
+0.02.243.045 I srv          init: init: chat template, thinking = 1
+0.02.243.246 I srv          init: preserve_reasoning kwarg: true
+0.02.243.250 W srv          init: chat template supports preserving reasoning, it is enabled by default (may use more tokens, disable via --no-reasoning-preserve)
+0.02.244.026 I srv  server_run_i: model loaded
+0.02.244.033 I srv  server_on_li: listening on http://127.0.0.1:8093
+0.02.244.463 I srv  update_slots: all slots are idle
+0.14.496.628 I slot get_availabl: id  0 | task -1 |  - skipping, slot is empty
+0.14.496.634 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 0, t_last = -1
+0.14.496.645 I slot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+0.14.496.648 I slot get_availabl: id  0 | task 0 |  - skipping, is_processing = 1
+0.14.496.650 I slot get_availabl: id  0 | task 0 |  - skipping, is_processing = 1
+0.14.496.660 I slot   operator(): id  0 | task 0 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.14.496.665 I slot   operator(): id  0 | task 0 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.14.971.120 I slot      release: id  0 | task 0 | stop processing: n_tokens = 43, truncated = 0
+0.14.971.141 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.14.971.142 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.14.971.147 I slot launch_slot_: id  0 | task 1 | processing task, is_child = 0
+0.14.971.158 I slot   operator(): id  0 | task 1 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.14.971.160 I slot   operator(): id  0 | task 1 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.15.020.583 I slot      release: id  0 | task 1 | stop processing: n_tokens = 64, truncated = 0
+0.15.020.603 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.15.020.605 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.15.020.610 I slot launch_slot_: id  0 | task 2 | processing task, is_child = 0
+0.15.020.620 I slot   operator(): id  0 | task 2 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.15.020.622 I slot   operator(): id  0 | task 2 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.15.063.211 I slot      release: id  0 | task 2 | stop processing: n_tokens = 54, truncated = 0
+0.15.063.234 I srv  update_slots: all slots are idle
+0.15.078.475 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.15.078.481 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.15.078.485 I slot launch_slot_: id  0 | task 6 | processing task, is_child = 0
+0.15.078.487 I slot get_availabl: id  0 | task 6 |  - skipping, is_processing = 1
+0.15.078.489 I slot get_availabl: id  0 | task 6 |  - skipping, is_processing = 1
+0.15.078.496 I slot   operator(): id  0 | task 6 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.15.078.497 I slot   operator(): id  0 | task 6 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.15.117.801 I slot      release: id  0 | task 6 | stop processing: n_tokens = 43, truncated = 0
+0.15.117.819 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.15.117.821 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.15.117.824 I slot launch_slot_: id  0 | task 7 | processing task, is_child = 0
+0.15.117.831 I slot   operator(): id  0 | task 7 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.15.117.832 I slot   operator(): id  0 | task 7 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.15.161.873 I slot      release: id  0 | task 7 | stop processing: n_tokens = 64, truncated = 0
+0.15.161.894 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.15.161.896 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.15.161.905 I slot launch_slot_: id  0 | task 8 | processing task, is_child = 0
+0.15.161.915 I slot   operator(): id  0 | task 8 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.15.161.917 I slot   operator(): id  0 | task 8 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.15.204.967 I slot      release: id  0 | task 8 | stop processing: n_tokens = 54, truncated = 0
+0.15.204.983 I srv  update_slots: all slots are idle
+0.15.237.362 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.15.237.368 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.15.237.373 I slot launch_slot_: id  0 | task 12 | processing task, is_child = 0
+0.15.237.375 I slot get_availabl: id  0 | task 12 |  - skipping, is_processing = 1
+0.15.237.378 I slot get_availabl: id  0 | task 12 |  - skipping, is_processing = 1
+0.15.237.384 I slot   operator(): id  0 | task 12 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.15.237.386 I slot   operator(): id  0 | task 12 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.15.276.455 I slot      release: id  0 | task 12 | stop processing: n_tokens = 43, truncated = 0
+0.15.276.473 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.15.276.475 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.15.276.479 I slot launch_slot_: id  0 | task 13 | processing task, is_child = 0
+0.15.276.487 I slot   operator(): id  0 | task 13 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.15.276.488 I slot   operator(): id  0 | task 13 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.15.318.168 I slot      release: id  0 | task 13 | stop processing: n_tokens = 64, truncated = 0
+0.15.318.199 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.15.318.204 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.15.318.209 I slot launch_slot_: id  0 | task 14 | processing task, is_child = 0
+0.15.318.223 I slot   operator(): id  0 | task 14 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.15.318.230 I slot   operator(): id  0 | task 14 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.15.361.055 I slot      release: id  0 | task 14 | stop processing: n_tokens = 54, truncated = 0
+0.15.361.067 I srv  update_slots: all slots are idle
+0.15.383.039 I srv  update_slots: all slots are idle
+0.16.466.325 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.16.466.344 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.16.466.353 I slot launch_slot_: id  0 | task 19 | processing task, is_child = 0
+0.16.466.358 I slot get_availabl: id  0 | task 19 |  - skipping, is_processing = 1
+0.16.466.364 I slot get_availabl: id  0 | task 19 |  - skipping, is_processing = 1
+0.16.466.381 I slot   operator(): id  0 | task 19 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.16.466.385 I slot   operator(): id  0 | task 19 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.16.507.901 I slot      release: id  0 | task 19 | stop processing: n_tokens = 43, truncated = 0
+0.16.507.925 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.16.507.927 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.16.507.931 I slot launch_slot_: id  0 | task 20 | processing task, is_child = 0
+0.16.507.941 I slot   operator(): id  0 | task 20 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.16.507.943 I slot   operator(): id  0 | task 20 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.16.550.263 I slot      release: id  0 | task 20 | stop processing: n_tokens = 64, truncated = 0
+0.16.550.281 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.16.550.284 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.16.550.287 I slot launch_slot_: id  0 | task 21 | processing task, is_child = 0
+0.16.550.297 I slot   operator(): id  0 | task 21 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.16.550.299 I slot   operator(): id  0 | task 21 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.16.593.236 I slot      release: id  0 | task 21 | stop processing: n_tokens = 54, truncated = 0
+0.16.593.262 I srv  update_slots: all slots are idle
+0.16.595.404 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.16.595.424 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.16.595.431 I slot launch_slot_: id  0 | task 25 | processing task, is_child = 0
+0.16.595.435 I slot get_availabl: id  0 | task 25 |  - skipping, is_processing = 1
+0.16.595.440 I slot get_availabl: id  0 | task 25 |  - skipping, is_processing = 1
+0.16.595.452 I slot   operator(): id  0 | task 25 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.16.595.455 I slot   operator(): id  0 | task 25 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.16.638.524 I slot      release: id  0 | task 25 | stop processing: n_tokens = 43, truncated = 0
+0.16.638.547 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.16.638.549 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.16.638.554 I slot launch_slot_: id  0 | task 26 | processing task, is_child = 0
+0.16.638.564 I slot   operator(): id  0 | task 26 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.16.638.566 I slot   operator(): id  0 | task 26 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.16.681.803 I slot      release: id  0 | task 26 | stop processing: n_tokens = 64, truncated = 0
+0.16.681.822 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.16.681.824 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.16.681.828 I slot launch_slot_: id  0 | task 27 | processing task, is_child = 0
+0.16.681.837 I slot   operator(): id  0 | task 27 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.16.681.840 I slot   operator(): id  0 | task 27 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.16.724.183 I slot      release: id  0 | task 27 | stop processing: n_tokens = 54, truncated = 0
+0.16.724.199 I srv  update_slots: all slots are idle
+0.16.725.843 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.16.725.849 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.16.725.853 I slot launch_slot_: id  0 | task 31 | processing task, is_child = 0
+0.16.725.855 I slot get_availabl: id  0 | task 31 |  - skipping, is_processing = 1
+0.16.725.857 I slot get_availabl: id  0 | task 31 |  - skipping, is_processing = 1
+0.16.725.863 I slot   operator(): id  0 | task 31 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.16.725.865 I slot   operator(): id  0 | task 31 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.16.767.379 I slot      release: id  0 | task 31 | stop processing: n_tokens = 43, truncated = 0
+0.16.767.397 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.16.767.399 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.16.767.403 I slot launch_slot_: id  0 | task 32 | processing task, is_child = 0
+0.16.767.411 I slot   operator(): id  0 | task 32 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.16.767.413 I slot   operator(): id  0 | task 32 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.16.809.967 I slot      release: id  0 | task 32 | stop processing: n_tokens = 64, truncated = 0
+0.16.809.984 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.16.809.986 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.16.809.988 I slot launch_slot_: id  0 | task 33 | processing task, is_child = 0
+0.16.809.996 I slot   operator(): id  0 | task 33 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.16.809.999 I slot   operator(): id  0 | task 33 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.16.850.410 I slot      release: id  0 | task 33 | stop processing: n_tokens = 54, truncated = 0
+0.16.850.426 I srv  update_slots: all slots are idle
+0.16.851.619 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.16.851.624 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.16.851.628 I slot launch_slot_: id  0 | task 37 | processing task, is_child = 0
+0.16.851.630 I slot get_availabl: id  0 | task 37 |  - skipping, is_processing = 1
+0.16.851.632 I slot get_availabl: id  0 | task 37 |  - skipping, is_processing = 1
+0.16.851.638 I slot   operator(): id  0 | task 37 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.16.851.640 I slot   operator(): id  0 | task 37 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.16.890.305 I slot      release: id  0 | task 37 | stop processing: n_tokens = 43, truncated = 0
+0.16.890.342 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.16.890.347 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.16.890.354 I slot launch_slot_: id  0 | task 38 | processing task, is_child = 0
+0.16.890.371 I slot   operator(): id  0 | task 38 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.16.890.379 I slot   operator(): id  0 | task 38 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.16.934.942 I slot      release: id  0 | task 38 | stop processing: n_tokens = 64, truncated = 0
+0.16.934.961 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.16.934.963 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.16.934.967 I slot launch_slot_: id  0 | task 39 | processing task, is_child = 0
+0.16.934.975 I slot   operator(): id  0 | task 39 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.16.934.977 I slot   operator(): id  0 | task 39 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.16.975.996 I slot      release: id  0 | task 39 | stop processing: n_tokens = 54, truncated = 0
+0.16.976.013 I srv  update_slots: all slots are idle
+0.16.977.234 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.16.977.239 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.16.977.244 I slot launch_slot_: id  0 | task 43 | processing task, is_child = 0
+0.16.977.247 I slot get_availabl: id  0 | task 43 |  - skipping, is_processing = 1
+0.16.977.249 I slot get_availabl: id  0 | task 43 |  - skipping, is_processing = 1
+0.16.977.255 I slot   operator(): id  0 | task 43 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.16.977.257 I slot   operator(): id  0 | task 43 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.018.029 I slot      release: id  0 | task 43 | stop processing: n_tokens = 43, truncated = 0
+0.17.018.052 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.17.018.054 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.17.018.059 I slot launch_slot_: id  0 | task 44 | processing task, is_child = 0
+0.17.018.070 I slot   operator(): id  0 | task 44 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.17.018.073 I slot   operator(): id  0 | task 44 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.062.320 I slot      release: id  0 | task 44 | stop processing: n_tokens = 64, truncated = 0
+0.17.062.344 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.17.062.346 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.17.062.350 I slot launch_slot_: id  0 | task 45 | processing task, is_child = 0
+0.17.062.361 I slot   operator(): id  0 | task 45 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.17.062.363 I slot   operator(): id  0 | task 45 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.106.028 I slot      release: id  0 | task 45 | stop processing: n_tokens = 54, truncated = 0
+0.17.106.045 I srv  update_slots: all slots are idle
+0.17.107.724 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.17.107.731 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.17.107.736 I slot launch_slot_: id  0 | task 49 | processing task, is_child = 0
+0.17.107.737 I slot get_availabl: id  0 | task 49 |  - skipping, is_processing = 1
+0.17.107.739 I slot get_availabl: id  0 | task 49 |  - skipping, is_processing = 1
+0.17.107.746 I slot   operator(): id  0 | task 49 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.17.107.748 I slot   operator(): id  0 | task 49 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.146.658 I slot      release: id  0 | task 49 | stop processing: n_tokens = 43, truncated = 0
+0.17.146.678 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.17.146.680 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.17.146.684 I slot launch_slot_: id  0 | task 50 | processing task, is_child = 0
+0.17.146.694 I slot   operator(): id  0 | task 50 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.17.146.696 I slot   operator(): id  0 | task 50 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.188.098 I slot      release: id  0 | task 50 | stop processing: n_tokens = 64, truncated = 0
+0.17.188.118 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.17.188.120 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.17.188.124 I slot launch_slot_: id  0 | task 51 | processing task, is_child = 0
+0.17.188.133 I slot   operator(): id  0 | task 51 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.17.188.136 I slot   operator(): id  0 | task 51 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.230.943 I slot      release: id  0 | task 51 | stop processing: n_tokens = 54, truncated = 0
+0.17.230.967 I srv  update_slots: all slots are idle
+0.17.232.252 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.17.232.260 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.17.232.264 I slot launch_slot_: id  0 | task 55 | processing task, is_child = 0
+0.17.232.266 I slot get_availabl: id  0 | task 55 |  - skipping, is_processing = 1
+0.17.232.269 I slot get_availabl: id  0 | task 55 |  - skipping, is_processing = 1
+0.17.232.274 I slot   operator(): id  0 | task 55 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.17.232.277 I slot   operator(): id  0 | task 55 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.272.931 I slot      release: id  0 | task 55 | stop processing: n_tokens = 43, truncated = 0
+0.17.272.968 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.17.272.977 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.17.272.984 I slot launch_slot_: id  0 | task 56 | processing task, is_child = 0
+0.17.273.002 I slot   operator(): id  0 | task 56 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.17.273.005 I slot   operator(): id  0 | task 56 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.316.000 I slot      release: id  0 | task 56 | stop processing: n_tokens = 64, truncated = 0
+0.17.316.032 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.17.316.037 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.17.316.042 I slot launch_slot_: id  0 | task 57 | processing task, is_child = 0
+0.17.316.057 I slot   operator(): id  0 | task 57 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.17.316.060 I slot   operator(): id  0 | task 57 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.361.149 I slot      release: id  0 | task 57 | stop processing: n_tokens = 54, truncated = 0
+0.17.361.176 I srv  update_slots: all slots are idle
+0.17.362.766 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.17.362.771 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.17.362.775 I slot launch_slot_: id  0 | task 61 | processing task, is_child = 0
+0.17.362.777 I slot get_availabl: id  0 | task 61 |  - skipping, is_processing = 1
+0.17.362.779 I slot get_availabl: id  0 | task 61 |  - skipping, is_processing = 1
+0.17.362.786 I slot   operator(): id  0 | task 61 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.17.362.787 I slot   operator(): id  0 | task 61 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.404.405 I slot      release: id  0 | task 61 | stop processing: n_tokens = 43, truncated = 0
+0.17.404.465 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.17.404.468 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.17.404.472 I slot launch_slot_: id  0 | task 62 | processing task, is_child = 0
+0.17.404.482 I slot   operator(): id  0 | task 62 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.17.404.484 I slot   operator(): id  0 | task 62 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.446.812 I slot      release: id  0 | task 62 | stop processing: n_tokens = 64, truncated = 0
+0.17.446.829 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.17.446.831 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.17.446.833 I slot launch_slot_: id  0 | task 63 | processing task, is_child = 0
+0.17.446.840 I slot   operator(): id  0 | task 63 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.17.446.842 I slot   operator(): id  0 | task 63 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.490.682 I slot      release: id  0 | task 63 | stop processing: n_tokens = 54, truncated = 0
+0.17.490.709 I srv  update_slots: all slots are idle
+0.17.491.906 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.17.491.913 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.17.491.918 I slot launch_slot_: id  0 | task 67 | processing task, is_child = 0
+0.17.491.920 I slot get_availabl: id  0 | task 67 |  - skipping, is_processing = 1
+0.17.491.922 I slot get_availabl: id  0 | task 67 |  - skipping, is_processing = 1
+0.17.491.928 I slot   operator(): id  0 | task 67 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.17.491.930 I slot   operator(): id  0 | task 67 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.534.671 I slot      release: id  0 | task 67 | stop processing: n_tokens = 43, truncated = 0
+0.17.534.689 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.17.534.691 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.17.534.695 I slot launch_slot_: id  0 | task 68 | processing task, is_child = 0
+0.17.534.705 I slot   operator(): id  0 | task 68 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.17.534.707 I slot   operator(): id  0 | task 68 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.576.928 I slot      release: id  0 | task 68 | stop processing: n_tokens = 64, truncated = 0
+0.17.576.947 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.17.576.949 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.17.576.952 I slot launch_slot_: id  0 | task 69 | processing task, is_child = 0
+0.17.576.960 I slot   operator(): id  0 | task 69 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.17.576.962 I slot   operator(): id  0 | task 69 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.617.051 I slot      release: id  0 | task 69 | stop processing: n_tokens = 54, truncated = 0
+0.17.617.063 I srv  update_slots: all slots are idle
+0.17.618.303 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.17.618.310 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.17.618.313 I slot launch_slot_: id  0 | task 73 | processing task, is_child = 0
+0.17.618.315 I slot get_availabl: id  0 | task 73 |  - skipping, is_processing = 1
+0.17.618.317 I slot get_availabl: id  0 | task 73 |  - skipping, is_processing = 1
+0.17.618.322 I slot   operator(): id  0 | task 73 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.17.618.324 I slot   operator(): id  0 | task 73 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.659.488 I slot      release: id  0 | task 73 | stop processing: n_tokens = 43, truncated = 0
+0.17.659.521 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.17.659.527 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.17.659.532 I slot launch_slot_: id  0 | task 74 | processing task, is_child = 0
+0.17.659.548 I slot   operator(): id  0 | task 74 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.17.659.551 I slot   operator(): id  0 | task 74 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.705.122 I slot      release: id  0 | task 74 | stop processing: n_tokens = 64, truncated = 0
+0.17.705.143 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.17.705.145 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.17.705.149 I slot launch_slot_: id  0 | task 75 | processing task, is_child = 0
+0.17.705.159 I slot   operator(): id  0 | task 75 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.17.705.162 I slot   operator(): id  0 | task 75 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.746.323 I slot      release: id  0 | task 75 | stop processing: n_tokens = 54, truncated = 0
+0.17.746.347 I srv  update_slots: all slots are idle
+0.17.747.503 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.17.747.510 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.17.747.513 I slot launch_slot_: id  0 | task 79 | processing task, is_child = 0
+0.17.747.515 I slot get_availabl: id  0 | task 79 |  - skipping, is_processing = 1
+0.17.747.517 I slot get_availabl: id  0 | task 79 |  - skipping, is_processing = 1
+0.17.747.523 I slot   operator(): id  0 | task 79 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.17.747.525 I slot   operator(): id  0 | task 79 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.786.510 I slot      release: id  0 | task 79 | stop processing: n_tokens = 43, truncated = 0
+0.17.786.531 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.17.786.533 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.17.786.537 I slot launch_slot_: id  0 | task 80 | processing task, is_child = 0
+0.17.786.547 I slot   operator(): id  0 | task 80 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.17.786.549 I slot   operator(): id  0 | task 80 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.831.250 I slot      release: id  0 | task 80 | stop processing: n_tokens = 64, truncated = 0
+0.17.831.284 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.17.831.290 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.17.831.295 I slot launch_slot_: id  0 | task 81 | processing task, is_child = 0
+0.17.831.311 I slot   operator(): id  0 | task 81 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.17.831.319 I slot   operator(): id  0 | task 81 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.874.703 I slot      release: id  0 | task 81 | stop processing: n_tokens = 54, truncated = 0
+0.17.874.721 I srv  update_slots: all slots are idle
+0.17.876.367 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.17.876.372 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.17.876.376 I slot launch_slot_: id  0 | task 85 | processing task, is_child = 0
+0.17.876.378 I slot get_availabl: id  0 | task 85 |  - skipping, is_processing = 1
+0.17.876.380 I slot get_availabl: id  0 | task 85 |  - skipping, is_processing = 1
+0.17.876.386 I slot   operator(): id  0 | task 85 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.17.876.388 I slot   operator(): id  0 | task 85 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.919.766 I slot      release: id  0 | task 85 | stop processing: n_tokens = 43, truncated = 0
+0.17.919.784 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.17.919.786 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.17.919.789 I slot launch_slot_: id  0 | task 86 | processing task, is_child = 0
+0.17.919.799 I slot   operator(): id  0 | task 86 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.17.919.801 I slot   operator(): id  0 | task 86 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.17.965.209 I slot      release: id  0 | task 86 | stop processing: n_tokens = 64, truncated = 0
+0.17.965.274 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.17.965.278 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.17.965.283 I slot launch_slot_: id  0 | task 87 | processing task, is_child = 0
+0.17.965.292 I slot   operator(): id  0 | task 87 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.17.965.294 I slot   operator(): id  0 | task 87 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.008.351 I slot      release: id  0 | task 87 | stop processing: n_tokens = 54, truncated = 0
+0.18.008.363 I srv  update_slots: all slots are idle
+0.18.009.624 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.18.009.628 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.18.009.632 I slot launch_slot_: id  0 | task 91 | processing task, is_child = 0
+0.18.009.634 I slot get_availabl: id  0 | task 91 |  - skipping, is_processing = 1
+0.18.009.636 I slot get_availabl: id  0 | task 91 |  - skipping, is_processing = 1
+0.18.009.642 I slot   operator(): id  0 | task 91 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.18.009.644 I slot   operator(): id  0 | task 91 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.048.074 I slot      release: id  0 | task 91 | stop processing: n_tokens = 43, truncated = 0
+0.18.048.095 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.18.048.097 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.18.048.101 I slot launch_slot_: id  0 | task 92 | processing task, is_child = 0
+0.18.048.110 I slot   operator(): id  0 | task 92 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.18.048.112 I slot   operator(): id  0 | task 92 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.092.385 I slot      release: id  0 | task 92 | stop processing: n_tokens = 64, truncated = 0
+0.18.092.400 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.18.092.402 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.18.092.405 I slot launch_slot_: id  0 | task 93 | processing task, is_child = 0
+0.18.092.412 I slot   operator(): id  0 | task 93 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.18.092.414 I slot   operator(): id  0 | task 93 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.135.138 I slot      release: id  0 | task 93 | stop processing: n_tokens = 54, truncated = 0
+0.18.135.157 I srv  update_slots: all slots are idle
+0.18.136.670 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.18.136.677 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.18.136.682 I slot launch_slot_: id  0 | task 97 | processing task, is_child = 0
+0.18.136.684 I slot get_availabl: id  0 | task 97 |  - skipping, is_processing = 1
+0.18.136.686 I slot get_availabl: id  0 | task 97 |  - skipping, is_processing = 1
+0.18.136.693 I slot   operator(): id  0 | task 97 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.18.136.695 I slot   operator(): id  0 | task 97 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.175.337 I slot      release: id  0 | task 97 | stop processing: n_tokens = 43, truncated = 0
+0.18.175.360 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.18.175.362 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.18.175.367 I slot launch_slot_: id  0 | task 98 | processing task, is_child = 0
+0.18.175.378 I slot   operator(): id  0 | task 98 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.18.175.380 I slot   operator(): id  0 | task 98 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.216.893 I slot      release: id  0 | task 98 | stop processing: n_tokens = 64, truncated = 0
+0.18.216.917 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.18.216.919 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.18.216.923 I slot launch_slot_: id  0 | task 99 | processing task, is_child = 0
+0.18.216.935 I slot   operator(): id  0 | task 99 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.18.216.937 I slot   operator(): id  0 | task 99 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.259.502 I slot      release: id  0 | task 99 | stop processing: n_tokens = 54, truncated = 0
+0.18.259.515 I srv  update_slots: all slots are idle
+0.18.260.699 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.18.260.704 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.18.260.707 I slot launch_slot_: id  0 | task 103 | processing task, is_child = 0
+0.18.260.709 I slot get_availabl: id  0 | task 103 |  - skipping, is_processing = 1
+0.18.260.712 I slot get_availabl: id  0 | task 103 |  - skipping, is_processing = 1
+0.18.260.717 I slot   operator(): id  0 | task 103 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.18.260.719 I slot   operator(): id  0 | task 103 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.302.438 I slot      release: id  0 | task 103 | stop processing: n_tokens = 43, truncated = 0
+0.18.302.454 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.18.302.456 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.18.302.459 I slot launch_slot_: id  0 | task 104 | processing task, is_child = 0
+0.18.302.468 I slot   operator(): id  0 | task 104 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.18.302.471 I slot   operator(): id  0 | task 104 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.344.916 I slot      release: id  0 | task 104 | stop processing: n_tokens = 64, truncated = 0
+0.18.344.938 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.18.344.940 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.18.344.945 I slot launch_slot_: id  0 | task 105 | processing task, is_child = 0
+0.18.344.956 I slot   operator(): id  0 | task 105 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.18.344.958 I slot   operator(): id  0 | task 105 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.385.488 I slot      release: id  0 | task 105 | stop processing: n_tokens = 54, truncated = 0
+0.18.385.509 I srv  update_slots: all slots are idle
+0.18.386.794 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.18.386.798 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.18.386.802 I slot launch_slot_: id  0 | task 109 | processing task, is_child = 0
+0.18.386.804 I slot get_availabl: id  0 | task 109 |  - skipping, is_processing = 1
+0.18.386.806 I slot get_availabl: id  0 | task 109 |  - skipping, is_processing = 1
+0.18.386.811 I slot   operator(): id  0 | task 109 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.18.386.813 I slot   operator(): id  0 | task 109 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.427.673 I slot      release: id  0 | task 109 | stop processing: n_tokens = 43, truncated = 0
+0.18.427.705 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.18.427.714 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.18.427.720 I slot launch_slot_: id  0 | task 110 | processing task, is_child = 0
+0.18.427.734 I slot   operator(): id  0 | task 110 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.18.427.737 I slot   operator(): id  0 | task 110 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.472.071 I slot      release: id  0 | task 110 | stop processing: n_tokens = 64, truncated = 0
+0.18.472.098 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.18.472.100 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.18.472.105 I slot launch_slot_: id  0 | task 111 | processing task, is_child = 0
+0.18.472.115 I slot   operator(): id  0 | task 111 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.18.472.117 I slot   operator(): id  0 | task 111 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.516.279 I slot      release: id  0 | task 111 | stop processing: n_tokens = 54, truncated = 0
+0.18.516.296 I srv  update_slots: all slots are idle
+0.18.517.554 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.18.517.558 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.18.517.562 I slot launch_slot_: id  0 | task 115 | processing task, is_child = 0
+0.18.517.563 I slot get_availabl: id  0 | task 115 |  - skipping, is_processing = 1
+0.18.517.565 I slot get_availabl: id  0 | task 115 |  - skipping, is_processing = 1
+0.18.517.572 I slot   operator(): id  0 | task 115 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.18.517.574 I slot   operator(): id  0 | task 115 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.559.562 I slot      release: id  0 | task 115 | stop processing: n_tokens = 43, truncated = 0
+0.18.559.591 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.18.559.601 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.18.559.606 I slot launch_slot_: id  0 | task 116 | processing task, is_child = 0
+0.18.559.619 I slot   operator(): id  0 | task 116 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.18.559.622 I slot   operator(): id  0 | task 116 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.604.907 I slot      release: id  0 | task 116 | stop processing: n_tokens = 64, truncated = 0
+0.18.604.922 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.18.604.924 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.18.604.927 I slot launch_slot_: id  0 | task 117 | processing task, is_child = 0
+0.18.604.934 I slot   operator(): id  0 | task 117 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.18.604.935 I slot   operator(): id  0 | task 117 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.645.557 I slot      release: id  0 | task 117 | stop processing: n_tokens = 54, truncated = 0
+0.18.645.572 I srv  update_slots: all slots are idle
+0.18.646.737 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.18.646.741 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.18.646.746 I slot launch_slot_: id  0 | task 121 | processing task, is_child = 0
+0.18.646.747 I slot get_availabl: id  0 | task 121 |  - skipping, is_processing = 1
+0.18.646.749 I slot get_availabl: id  0 | task 121 |  - skipping, is_processing = 1
+0.18.646.755 I slot   operator(): id  0 | task 121 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.18.646.757 I slot   operator(): id  0 | task 121 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.686.490 I slot      release: id  0 | task 121 | stop processing: n_tokens = 43, truncated = 0
+0.18.686.526 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.18.686.532 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.18.686.538 I slot launch_slot_: id  0 | task 122 | processing task, is_child = 0
+0.18.686.556 I slot   operator(): id  0 | task 122 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.18.686.559 I slot   operator(): id  0 | task 122 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.732.694 I slot      release: id  0 | task 122 | stop processing: n_tokens = 64, truncated = 0
+0.18.732.726 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.18.732.732 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.18.732.737 I slot launch_slot_: id  0 | task 123 | processing task, is_child = 0
+0.18.732.752 I slot   operator(): id  0 | task 123 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.18.732.757 I slot   operator(): id  0 | task 123 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.776.260 I slot      release: id  0 | task 123 | stop processing: n_tokens = 54, truncated = 0
+0.18.776.274 I srv  update_slots: all slots are idle
+0.18.777.880 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.18.777.884 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.18.777.888 I slot launch_slot_: id  0 | task 127 | processing task, is_child = 0
+0.18.777.890 I slot get_availabl: id  0 | task 127 |  - skipping, is_processing = 1
+0.18.777.892 I slot get_availabl: id  0 | task 127 |  - skipping, is_processing = 1
+0.18.777.898 I slot   operator(): id  0 | task 127 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.18.777.900 I slot   operator(): id  0 | task 127 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.816.691 I slot      release: id  0 | task 127 | stop processing: n_tokens = 43, truncated = 0
+0.18.816.704 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.18.816.705 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.18.816.708 I slot launch_slot_: id  0 | task 128 | processing task, is_child = 0
+0.18.816.714 I slot   operator(): id  0 | task 128 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.18.816.715 I slot   operator(): id  0 | task 128 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.861.710 I slot      release: id  0 | task 128 | stop processing: n_tokens = 64, truncated = 0
+0.18.861.744 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.18.861.750 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.18.861.756 I slot launch_slot_: id  0 | task 129 | processing task, is_child = 0
+0.18.861.771 I slot   operator(): id  0 | task 129 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.18.861.774 I slot   operator(): id  0 | task 129 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.905.082 I slot      release: id  0 | task 129 | stop processing: n_tokens = 54, truncated = 0
+0.18.905.108 I srv  update_slots: all slots are idle
+0.18.906.304 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.488 (21/43) > 0.100
+0.18.906.312 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.488 (> 0.100 thold), f_keep = 0.389
+0.18.906.317 I slot launch_slot_: id  0 | task 133 | processing task, is_child = 0
+0.18.906.319 I slot get_availabl: id  0 | task 133 |  - skipping, is_processing = 1
+0.18.906.321 I slot get_availabl: id  0 | task 133 |  - skipping, is_processing = 1
+0.18.906.328 I slot   operator(): id  0 | task 133 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 43
+0.18.906.330 I slot   operator(): id  0 | task 133 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.944.927 I slot      release: id  0 | task 133 | stop processing: n_tokens = 43, truncated = 0
+0.18.944.941 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.328 (21/64) > 0.100
+0.18.944.943 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.328 (> 0.100 thold), f_keep = 0.488
+0.18.944.946 I slot launch_slot_: id  0 | task 134 | processing task, is_child = 0
+0.18.944.953 I slot   operator(): id  0 | task 134 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 64
+0.18.944.954 I slot   operator(): id  0 | task 134 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.18.987.022 I slot      release: id  0 | task 134 | stop processing: n_tokens = 64, truncated = 0
+0.18.987.052 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.389 (21/54) > 0.100
+0.18.987.057 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.389 (> 0.100 thold), f_keep = 0.328
+0.18.987.062 I slot launch_slot_: id  0 | task 135 | processing task, is_child = 0
+0.18.987.075 I slot   operator(): id  0 | task 135 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 54
+0.18.987.078 I slot   operator(): id  0 | task 135 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.19.031.836 I slot      release: id  0 | task 135 | stop processing: n_tokens = 54, truncated = 0
+0.19.031.870 I srv  update_slots: all slots are idle
+0.19.078.386 I srv  update_slots: all slots are idle
+0.19.108.961 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.035 (18/509) > 0.100
+0.19.108.968 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 54, t_last = 18117200
+0.19.108.973 I slot launch_slot_: id  0 | task 140 | processing task, is_child = 0
+0.19.108.974 I slot get_availabl: id  0 | task 140 |  - skipping, is_processing = 1
+0.19.108.976 I slot get_availabl: id  0 | task 140 |  - skipping, is_processing = 1
+0.19.108.982 I slot   operator(): id  0 | task 140 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.19.108.984 I slot   operator(): id  0 | task 140 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.19.400.318 I slot      release: id  0 | task 140 | stop processing: n_tokens = 509, truncated = 0
+0.19.400.345 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.19.400.347 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.19.400.356 I slot launch_slot_: id  0 | task 141 | processing task, is_child = 0
+0.19.400.368 I slot   operator(): id  0 | task 141 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.19.400.371 I slot   operator(): id  0 | task 141 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.19.717.077 I slot      release: id  0 | task 141 | stop processing: n_tokens = 530, truncated = 0
+0.19.717.100 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.19.717.102 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.19.717.106 I slot launch_slot_: id  0 | task 142 | processing task, is_child = 0
+0.19.717.119 I slot   operator(): id  0 | task 142 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.19.717.121 I slot   operator(): id  0 | task 142 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.20.030.500 I slot      release: id  0 | task 142 | stop processing: n_tokens = 520, truncated = 0
+0.20.030.520 I srv  update_slots: all slots are idle
+0.20.047.255 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.20.047.263 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.20.047.269 I slot launch_slot_: id  0 | task 146 | processing task, is_child = 0
+0.20.047.271 I slot get_availabl: id  0 | task 146 |  - skipping, is_processing = 1
+0.20.047.274 I slot get_availabl: id  0 | task 146 |  - skipping, is_processing = 1
+0.20.047.282 I slot   operator(): id  0 | task 146 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.20.047.284 I slot   operator(): id  0 | task 146 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.20.334.485 I slot      release: id  0 | task 146 | stop processing: n_tokens = 509, truncated = 0
+0.20.334.512 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.20.334.514 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.20.334.519 I slot launch_slot_: id  0 | task 147 | processing task, is_child = 0
+0.20.334.531 I slot   operator(): id  0 | task 147 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.20.334.533 I slot   operator(): id  0 | task 147 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.20.645.682 I slot      release: id  0 | task 147 | stop processing: n_tokens = 530, truncated = 0
+0.20.645.719 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.20.645.721 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.20.645.729 I slot launch_slot_: id  0 | task 148 | processing task, is_child = 0
+0.20.645.752 I slot   operator(): id  0 | task 148 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.20.645.755 I slot   operator(): id  0 | task 148 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.20.955.750 I slot      release: id  0 | task 148 | stop processing: n_tokens = 520, truncated = 0
+0.20.955.770 I srv  update_slots: all slots are idle
+0.20.971.602 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.20.971.608 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.20.971.613 I slot launch_slot_: id  0 | task 152 | processing task, is_child = 0
+0.20.971.615 I slot get_availabl: id  0 | task 152 |  - skipping, is_processing = 1
+0.20.971.618 I slot get_availabl: id  0 | task 152 |  - skipping, is_processing = 1
+0.20.971.627 I slot   operator(): id  0 | task 152 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.20.971.629 I slot   operator(): id  0 | task 152 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.21.258.963 I slot      release: id  0 | task 152 | stop processing: n_tokens = 509, truncated = 0
+0.21.259.006 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.21.259.016 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.21.259.023 I slot launch_slot_: id  0 | task 153 | processing task, is_child = 0
+0.21.259.043 I slot   operator(): id  0 | task 153 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.21.259.051 I slot   operator(): id  0 | task 153 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.21.572.117 I slot      release: id  0 | task 153 | stop processing: n_tokens = 530, truncated = 0
+0.21.572.140 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.21.572.142 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.21.572.147 I slot launch_slot_: id  0 | task 154 | processing task, is_child = 0
+0.21.572.159 I slot   operator(): id  0 | task 154 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.21.572.161 I slot   operator(): id  0 | task 154 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.21.881.029 I slot      release: id  0 | task 154 | stop processing: n_tokens = 520, truncated = 0
+0.21.881.061 I srv  update_slots: all slots are idle
+0.21.907.355 I srv  update_slots: all slots are idle
+0.21.942.947 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.21.942.954 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.21.942.960 I slot launch_slot_: id  0 | task 159 | processing task, is_child = 0
+0.21.942.962 I slot get_availabl: id  0 | task 159 |  - skipping, is_processing = 1
+0.21.942.965 I slot get_availabl: id  0 | task 159 |  - skipping, is_processing = 1
+0.21.942.973 I slot   operator(): id  0 | task 159 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.21.942.975 I slot   operator(): id  0 | task 159 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.22.229.211 I slot      release: id  0 | task 159 | stop processing: n_tokens = 509, truncated = 0
+0.22.229.235 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.22.229.237 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.22.229.242 I slot launch_slot_: id  0 | task 160 | processing task, is_child = 0
+0.22.229.255 I slot   operator(): id  0 | task 160 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.22.229.257 I slot   operator(): id  0 | task 160 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.22.540.989 I slot      release: id  0 | task 160 | stop processing: n_tokens = 530, truncated = 0
+0.22.541.025 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.22.541.030 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.22.541.038 I slot launch_slot_: id  0 | task 161 | processing task, is_child = 0
+0.22.541.057 I slot   operator(): id  0 | task 161 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.22.541.066 I slot   operator(): id  0 | task 161 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.22.852.382 I slot      release: id  0 | task 161 | stop processing: n_tokens = 520, truncated = 0
+0.22.852.413 I srv  update_slots: all slots are idle
+0.22.854.171 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.22.854.179 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.22.854.185 I slot launch_slot_: id  0 | task 165 | processing task, is_child = 0
+0.22.854.187 I slot get_availabl: id  0 | task 165 |  - skipping, is_processing = 1
+0.22.854.189 I slot get_availabl: id  0 | task 165 |  - skipping, is_processing = 1
+0.22.854.197 I slot   operator(): id  0 | task 165 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.22.854.199 I slot   operator(): id  0 | task 165 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.23.140.641 I slot      release: id  0 | task 165 | stop processing: n_tokens = 509, truncated = 0
+0.23.140.688 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.23.140.694 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.23.140.702 I slot launch_slot_: id  0 | task 166 | processing task, is_child = 0
+0.23.140.753 I slot   operator(): id  0 | task 166 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.23.140.764 I slot   operator(): id  0 | task 166 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.23.451.501 I slot      release: id  0 | task 166 | stop processing: n_tokens = 530, truncated = 0
+0.23.451.547 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.23.451.553 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.23.451.562 I slot launch_slot_: id  0 | task 167 | processing task, is_child = 0
+0.23.451.584 I slot   operator(): id  0 | task 167 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.23.451.588 I slot   operator(): id  0 | task 167 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.23.768.803 I slot      release: id  0 | task 167 | stop processing: n_tokens = 520, truncated = 0
+0.23.768.822 I srv  update_slots: all slots are idle
+0.23.770.516 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.23.770.522 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.23.770.527 I slot launch_slot_: id  0 | task 171 | processing task, is_child = 0
+0.23.770.529 I slot get_availabl: id  0 | task 171 |  - skipping, is_processing = 1
+0.23.770.532 I slot get_availabl: id  0 | task 171 |  - skipping, is_processing = 1
+0.23.770.540 I slot   operator(): id  0 | task 171 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.23.770.542 I slot   operator(): id  0 | task 171 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.24.061.468 I slot      release: id  0 | task 171 | stop processing: n_tokens = 509, truncated = 0
+0.24.061.493 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.24.061.495 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.24.061.500 I slot launch_slot_: id  0 | task 172 | processing task, is_child = 0
+0.24.061.512 I slot   operator(): id  0 | task 172 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.24.061.514 I slot   operator(): id  0 | task 172 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.24.387.082 I slot      release: id  0 | task 172 | stop processing: n_tokens = 530, truncated = 0
+0.24.387.120 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.24.387.130 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.24.387.138 I slot launch_slot_: id  0 | task 173 | processing task, is_child = 0
+0.24.387.157 I slot   operator(): id  0 | task 173 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.24.387.160 I slot   operator(): id  0 | task 173 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.24.702.363 I slot      release: id  0 | task 173 | stop processing: n_tokens = 520, truncated = 0
+0.24.702.404 I srv  update_slots: all slots are idle
+0.24.704.445 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.24.704.453 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.24.704.459 I slot launch_slot_: id  0 | task 177 | processing task, is_child = 0
+0.24.704.462 I slot get_availabl: id  0 | task 177 |  - skipping, is_processing = 1
+0.24.704.464 I slot get_availabl: id  0 | task 177 |  - skipping, is_processing = 1
+0.24.704.472 I slot   operator(): id  0 | task 177 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.24.704.474 I slot   operator(): id  0 | task 177 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.24.992.729 I slot      release: id  0 | task 177 | stop processing: n_tokens = 509, truncated = 0
+0.24.992.771 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.24.992.776 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.24.992.784 I slot launch_slot_: id  0 | task 178 | processing task, is_child = 0
+0.24.992.803 I slot   operator(): id  0 | task 178 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.24.992.811 I slot   operator(): id  0 | task 178 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.25.305.510 I slot      release: id  0 | task 178 | stop processing: n_tokens = 530, truncated = 0
+0.25.305.534 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.25.305.536 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.25.305.541 I slot launch_slot_: id  0 | task 179 | processing task, is_child = 0
+0.25.305.553 I slot   operator(): id  0 | task 179 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.25.305.555 I slot   operator(): id  0 | task 179 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.25.616.866 I slot      release: id  0 | task 179 | stop processing: n_tokens = 520, truncated = 0
+0.25.616.886 I srv  update_slots: all slots are idle
+0.25.618.608 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.25.618.615 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.25.618.620 I slot launch_slot_: id  0 | task 183 | processing task, is_child = 0
+0.25.618.622 I slot get_availabl: id  0 | task 183 |  - skipping, is_processing = 1
+0.25.618.625 I slot get_availabl: id  0 | task 183 |  - skipping, is_processing = 1
+0.25.618.633 I slot   operator(): id  0 | task 183 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.25.618.635 I slot   operator(): id  0 | task 183 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.25.907.203 I slot      release: id  0 | task 183 | stop processing: n_tokens = 509, truncated = 0
+0.25.907.246 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.25.907.251 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.25.907.259 I slot launch_slot_: id  0 | task 184 | processing task, is_child = 0
+0.25.907.278 I slot   operator(): id  0 | task 184 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.25.907.287 I slot   operator(): id  0 | task 184 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.26.221.324 I slot      release: id  0 | task 184 | stop processing: n_tokens = 530, truncated = 0
+0.26.221.345 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.26.221.347 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.26.221.352 I slot launch_slot_: id  0 | task 185 | processing task, is_child = 0
+0.26.221.364 I slot   operator(): id  0 | task 185 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.26.221.366 I slot   operator(): id  0 | task 185 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.26.540.013 I slot      release: id  0 | task 185 | stop processing: n_tokens = 520, truncated = 0
+0.26.540.033 I srv  update_slots: all slots are idle
+0.26.541.687 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.26.541.693 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.26.541.697 I slot launch_slot_: id  0 | task 189 | processing task, is_child = 0
+0.26.541.699 I slot get_availabl: id  0 | task 189 |  - skipping, is_processing = 1
+0.26.541.701 I slot get_availabl: id  0 | task 189 |  - skipping, is_processing = 1
+0.26.541.708 I slot   operator(): id  0 | task 189 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.26.541.710 I slot   operator(): id  0 | task 189 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.26.847.683 I slot      release: id  0 | task 189 | stop processing: n_tokens = 509, truncated = 0
+0.26.847.719 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.26.847.722 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.26.847.727 I slot launch_slot_: id  0 | task 190 | processing task, is_child = 0
+0.26.847.742 I slot   operator(): id  0 | task 190 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.26.847.745 I slot   operator(): id  0 | task 190 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.27.198.243 I slot      release: id  0 | task 190 | stop processing: n_tokens = 530, truncated = 0
+0.27.198.265 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.27.198.266 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.27.198.271 I slot launch_slot_: id  0 | task 191 | processing task, is_child = 0
+0.27.198.283 I slot   operator(): id  0 | task 191 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.27.198.286 I slot   operator(): id  0 | task 191 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.27.542.848 I slot      release: id  0 | task 191 | stop processing: n_tokens = 520, truncated = 0
+0.27.542.867 I srv  update_slots: all slots are idle
+0.27.544.512 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.27.544.519 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.27.544.525 I slot launch_slot_: id  0 | task 195 | processing task, is_child = 0
+0.27.544.527 I slot get_availabl: id  0 | task 195 |  - skipping, is_processing = 1
+0.27.544.529 I slot get_availabl: id  0 | task 195 |  - skipping, is_processing = 1
+0.27.544.538 I slot   operator(): id  0 | task 195 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.27.544.540 I slot   operator(): id  0 | task 195 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.27.833.838 I slot      release: id  0 | task 195 | stop processing: n_tokens = 509, truncated = 0
+0.27.833.862 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.27.833.864 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.27.833.869 I slot launch_slot_: id  0 | task 196 | processing task, is_child = 0
+0.27.833.881 I slot   operator(): id  0 | task 196 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.27.833.883 I slot   operator(): id  0 | task 196 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.28.149.721 I slot      release: id  0 | task 196 | stop processing: n_tokens = 530, truncated = 0
+0.28.149.743 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.28.149.745 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.28.149.750 I slot launch_slot_: id  0 | task 197 | processing task, is_child = 0
+0.28.149.761 I slot   operator(): id  0 | task 197 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.28.149.763 I slot   operator(): id  0 | task 197 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.28.462.307 I slot      release: id  0 | task 197 | stop processing: n_tokens = 520, truncated = 0
+0.28.462.326 I srv  update_slots: all slots are idle
+0.28.464.024 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.28.464.028 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.28.464.033 I slot launch_slot_: id  0 | task 201 | processing task, is_child = 0
+0.28.464.034 I slot get_availabl: id  0 | task 201 |  - skipping, is_processing = 1
+0.28.464.037 I slot get_availabl: id  0 | task 201 |  - skipping, is_processing = 1
+0.28.464.044 I slot   operator(): id  0 | task 201 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.28.464.045 I slot   operator(): id  0 | task 201 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.28.753.528 I slot      release: id  0 | task 201 | stop processing: n_tokens = 509, truncated = 0
+0.28.753.553 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.28.753.555 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.28.753.559 I slot launch_slot_: id  0 | task 202 | processing task, is_child = 0
+0.28.753.571 I slot   operator(): id  0 | task 202 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.28.753.573 I slot   operator(): id  0 | task 202 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.29.068.913 I slot      release: id  0 | task 202 | stop processing: n_tokens = 530, truncated = 0
+0.29.068.937 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.29.068.939 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.29.068.944 I slot launch_slot_: id  0 | task 203 | processing task, is_child = 0
+0.29.068.957 I slot   operator(): id  0 | task 203 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.29.068.959 I slot   operator(): id  0 | task 203 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.29.378.400 I slot      release: id  0 | task 203 | stop processing: n_tokens = 520, truncated = 0
+0.29.378.431 I srv  update_slots: all slots are idle
+0.29.380.286 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.29.380.291 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.29.380.296 I slot launch_slot_: id  0 | task 207 | processing task, is_child = 0
+0.29.380.297 I slot get_availabl: id  0 | task 207 |  - skipping, is_processing = 1
+0.29.380.300 I slot get_availabl: id  0 | task 207 |  - skipping, is_processing = 1
+0.29.380.306 I slot   operator(): id  0 | task 207 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.29.380.308 I slot   operator(): id  0 | task 207 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.29.668.693 I slot      release: id  0 | task 207 | stop processing: n_tokens = 509, truncated = 0
+0.29.668.733 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.29.668.744 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.29.668.752 I slot launch_slot_: id  0 | task 208 | processing task, is_child = 0
+0.29.668.772 I slot   operator(): id  0 | task 208 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.29.668.775 I slot   operator(): id  0 | task 208 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.29.981.317 I slot      release: id  0 | task 208 | stop processing: n_tokens = 530, truncated = 0
+0.29.981.341 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.29.981.343 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.29.981.348 I slot launch_slot_: id  0 | task 209 | processing task, is_child = 0
+0.29.981.360 I slot   operator(): id  0 | task 209 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.29.981.362 I slot   operator(): id  0 | task 209 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.30.286.627 I slot      release: id  0 | task 209 | stop processing: n_tokens = 520, truncated = 0
+0.30.286.647 I srv  update_slots: all slots are idle
+0.30.288.467 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.30.288.471 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.30.288.475 I slot launch_slot_: id  0 | task 213 | processing task, is_child = 0
+0.30.288.477 I slot get_availabl: id  0 | task 213 |  - skipping, is_processing = 1
+0.30.288.480 I slot get_availabl: id  0 | task 213 |  - skipping, is_processing = 1
+0.30.288.487 I slot   operator(): id  0 | task 213 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.30.288.489 I slot   operator(): id  0 | task 213 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.30.577.594 I slot      release: id  0 | task 213 | stop processing: n_tokens = 509, truncated = 0
+0.30.577.635 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.30.577.640 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.30.577.648 I slot launch_slot_: id  0 | task 214 | processing task, is_child = 0
+0.30.577.667 I slot   operator(): id  0 | task 214 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.30.577.675 I slot   operator(): id  0 | task 214 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.30.890.577 I slot      release: id  0 | task 214 | stop processing: n_tokens = 530, truncated = 0
+0.30.890.614 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.30.890.624 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.30.890.634 I slot launch_slot_: id  0 | task 215 | processing task, is_child = 0
+0.30.890.652 I slot   operator(): id  0 | task 215 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.30.890.656 I slot   operator(): id  0 | task 215 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.31.206.425 I slot      release: id  0 | task 215 | stop processing: n_tokens = 520, truncated = 0
+0.31.206.444 I srv  update_slots: all slots are idle
+0.31.208.137 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.31.208.144 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.31.208.148 I slot launch_slot_: id  0 | task 219 | processing task, is_child = 0
+0.31.208.150 I slot get_availabl: id  0 | task 219 |  - skipping, is_processing = 1
+0.31.208.153 I slot get_availabl: id  0 | task 219 |  - skipping, is_processing = 1
+0.31.208.160 I slot   operator(): id  0 | task 219 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.31.208.162 I slot   operator(): id  0 | task 219 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.31.496.102 I slot      release: id  0 | task 219 | stop processing: n_tokens = 509, truncated = 0
+0.31.496.128 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.31.496.130 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.31.496.135 I slot launch_slot_: id  0 | task 220 | processing task, is_child = 0
+0.31.496.147 I slot   operator(): id  0 | task 220 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.31.496.149 I slot   operator(): id  0 | task 220 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.31.812.742 I slot      release: id  0 | task 220 | stop processing: n_tokens = 530, truncated = 0
+0.31.812.765 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.31.812.767 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.31.812.772 I slot launch_slot_: id  0 | task 221 | processing task, is_child = 0
+0.31.812.784 I slot   operator(): id  0 | task 221 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.31.812.787 I slot   operator(): id  0 | task 221 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.32.130.472 I slot      release: id  0 | task 221 | stop processing: n_tokens = 520, truncated = 0
+0.32.130.503 I srv  update_slots: all slots are idle
+0.32.132.213 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.32.132.221 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.32.132.225 I slot launch_slot_: id  0 | task 225 | processing task, is_child = 0
+0.32.132.227 I slot get_availabl: id  0 | task 225 |  - skipping, is_processing = 1
+0.32.132.230 I slot get_availabl: id  0 | task 225 |  - skipping, is_processing = 1
+0.32.132.238 I slot   operator(): id  0 | task 225 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.32.132.240 I slot   operator(): id  0 | task 225 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.32.420.074 I slot      release: id  0 | task 225 | stop processing: n_tokens = 509, truncated = 0
+0.32.420.115 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.32.420.120 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.32.420.128 I slot launch_slot_: id  0 | task 226 | processing task, is_child = 0
+0.32.420.146 I slot   operator(): id  0 | task 226 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.32.420.154 I slot   operator(): id  0 | task 226 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.32.735.688 I slot      release: id  0 | task 226 | stop processing: n_tokens = 530, truncated = 0
+0.32.735.718 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.32.735.721 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.32.735.726 I slot launch_slot_: id  0 | task 227 | processing task, is_child = 0
+0.32.735.741 I slot   operator(): id  0 | task 227 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.32.735.744 I slot   operator(): id  0 | task 227 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.33.047.151 I slot      release: id  0 | task 227 | stop processing: n_tokens = 520, truncated = 0
+0.33.047.171 I srv  update_slots: all slots are idle
+0.33.049.294 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.33.049.301 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.33.049.306 I slot launch_slot_: id  0 | task 231 | processing task, is_child = 0
+0.33.049.308 I slot get_availabl: id  0 | task 231 |  - skipping, is_processing = 1
+0.33.049.310 I slot get_availabl: id  0 | task 231 |  - skipping, is_processing = 1
+0.33.049.318 I slot   operator(): id  0 | task 231 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.33.049.320 I slot   operator(): id  0 | task 231 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.33.335.330 I slot      release: id  0 | task 231 | stop processing: n_tokens = 509, truncated = 0
+0.33.335.359 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.33.335.361 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.33.335.365 I slot launch_slot_: id  0 | task 232 | processing task, is_child = 0
+0.33.335.378 I slot   operator(): id  0 | task 232 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.33.335.380 I slot   operator(): id  0 | task 232 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.33.648.229 I slot      release: id  0 | task 232 | stop processing: n_tokens = 530, truncated = 0
+0.33.648.249 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.33.648.251 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.33.648.259 I slot launch_slot_: id  0 | task 233 | processing task, is_child = 0
+0.33.648.272 I slot   operator(): id  0 | task 233 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.33.648.274 I slot   operator(): id  0 | task 233 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.33.973.242 I slot      release: id  0 | task 233 | stop processing: n_tokens = 520, truncated = 0
+0.33.973.260 I srv  update_slots: all slots are idle
+0.33.974.835 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.33.974.841 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.33.974.846 I slot launch_slot_: id  0 | task 237 | processing task, is_child = 0
+0.33.974.848 I slot get_availabl: id  0 | task 237 |  - skipping, is_processing = 1
+0.33.974.850 I slot get_availabl: id  0 | task 237 |  - skipping, is_processing = 1
+0.33.974.857 I slot   operator(): id  0 | task 237 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.33.974.859 I slot   operator(): id  0 | task 237 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.34.260.776 I slot      release: id  0 | task 237 | stop processing: n_tokens = 509, truncated = 0
+0.34.260.800 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.34.260.802 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.34.260.807 I slot launch_slot_: id  0 | task 238 | processing task, is_child = 0
+0.34.260.818 I slot   operator(): id  0 | task 238 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.34.260.821 I slot   operator(): id  0 | task 238 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.34.577.992 I slot      release: id  0 | task 238 | stop processing: n_tokens = 530, truncated = 0
+0.34.578.048 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.34.578.050 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.34.578.056 I slot launch_slot_: id  0 | task 239 | processing task, is_child = 0
+0.34.578.068 I slot   operator(): id  0 | task 239 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.34.578.070 I slot   operator(): id  0 | task 239 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.34.897.046 I slot      release: id  0 | task 239 | stop processing: n_tokens = 520, truncated = 0
+0.34.897.074 I srv  update_slots: all slots are idle
+0.34.898.657 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.34.898.662 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.34.898.666 I slot launch_slot_: id  0 | task 243 | processing task, is_child = 0
+0.34.898.668 I slot get_availabl: id  0 | task 243 |  - skipping, is_processing = 1
+0.34.898.670 I slot get_availabl: id  0 | task 243 |  - skipping, is_processing = 1
+0.34.898.678 I slot   operator(): id  0 | task 243 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.34.898.679 I slot   operator(): id  0 | task 243 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.35.187.295 I slot      release: id  0 | task 243 | stop processing: n_tokens = 509, truncated = 0
+0.35.187.321 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.35.187.323 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.35.187.328 I slot launch_slot_: id  0 | task 244 | processing task, is_child = 0
+0.35.187.340 I slot   operator(): id  0 | task 244 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.35.187.342 I slot   operator(): id  0 | task 244 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.35.501.087 I slot      release: id  0 | task 244 | stop processing: n_tokens = 530, truncated = 0
+0.35.501.110 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.35.501.112 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.35.501.116 I slot launch_slot_: id  0 | task 245 | processing task, is_child = 0
+0.35.501.128 I slot   operator(): id  0 | task 245 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.35.501.130 I slot   operator(): id  0 | task 245 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.35.817.713 I slot      release: id  0 | task 245 | stop processing: n_tokens = 520, truncated = 0
+0.35.817.742 I srv  update_slots: all slots are idle
+0.35.819.447 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.35.819.460 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.35.819.468 I slot launch_slot_: id  0 | task 249 | processing task, is_child = 0
+0.35.819.472 I slot get_availabl: id  0 | task 249 |  - skipping, is_processing = 1
+0.35.819.476 I slot get_availabl: id  0 | task 249 |  - skipping, is_processing = 1
+0.35.819.490 I slot   operator(): id  0 | task 249 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.35.819.493 I slot   operator(): id  0 | task 249 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.36.113.805 I slot      release: id  0 | task 249 | stop processing: n_tokens = 509, truncated = 0
+0.36.113.830 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.36.113.832 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.36.113.836 I slot launch_slot_: id  0 | task 250 | processing task, is_child = 0
+0.36.113.847 I slot   operator(): id  0 | task 250 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.36.113.850 I slot   operator(): id  0 | task 250 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.36.425.233 I slot      release: id  0 | task 250 | stop processing: n_tokens = 530, truncated = 0
+0.36.425.256 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.36.425.258 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.36.425.262 I slot launch_slot_: id  0 | task 251 | processing task, is_child = 0
+0.36.425.274 I slot   operator(): id  0 | task 251 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.36.425.276 I slot   operator(): id  0 | task 251 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.36.739.025 I slot      release: id  0 | task 251 | stop processing: n_tokens = 520, truncated = 0
+0.36.739.045 I srv  update_slots: all slots are idle
+0.36.740.919 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.36.740.926 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.36.740.931 I slot launch_slot_: id  0 | task 255 | processing task, is_child = 0
+0.36.740.933 I slot get_availabl: id  0 | task 255 |  - skipping, is_processing = 1
+0.36.740.936 I slot get_availabl: id  0 | task 255 |  - skipping, is_processing = 1
+0.36.740.947 I slot   operator(): id  0 | task 255 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.36.740.948 I slot   operator(): id  0 | task 255 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.37.028.760 I slot      release: id  0 | task 255 | stop processing: n_tokens = 509, truncated = 0
+0.37.028.786 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.37.028.788 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.37.028.793 I slot launch_slot_: id  0 | task 256 | processing task, is_child = 0
+0.37.028.805 I slot   operator(): id  0 | task 256 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.37.028.808 I slot   operator(): id  0 | task 256 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.37.340.261 I slot      release: id  0 | task 256 | stop processing: n_tokens = 530, truncated = 0
+0.37.340.285 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.37.340.287 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.37.340.292 I slot launch_slot_: id  0 | task 257 | processing task, is_child = 0
+0.37.340.304 I slot   operator(): id  0 | task 257 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.37.340.306 I slot   operator(): id  0 | task 257 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.37.655.190 I slot      release: id  0 | task 257 | stop processing: n_tokens = 520, truncated = 0
+0.37.655.208 I srv  update_slots: all slots are idle
+0.37.657.020 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.37.657.025 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.37.657.030 I slot launch_slot_: id  0 | task 261 | processing task, is_child = 0
+0.37.657.032 I slot get_availabl: id  0 | task 261 |  - skipping, is_processing = 1
+0.37.657.034 I slot get_availabl: id  0 | task 261 |  - skipping, is_processing = 1
+0.37.657.042 I slot   operator(): id  0 | task 261 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.37.657.045 I slot   operator(): id  0 | task 261 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.37.951.110 I slot      release: id  0 | task 261 | stop processing: n_tokens = 509, truncated = 0
+0.37.951.136 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.37.951.138 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.37.951.142 I slot launch_slot_: id  0 | task 262 | processing task, is_child = 0
+0.37.951.154 I slot   operator(): id  0 | task 262 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.37.951.156 I slot   operator(): id  0 | task 262 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.38.262.398 I slot      release: id  0 | task 262 | stop processing: n_tokens = 530, truncated = 0
+0.38.262.423 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.38.262.425 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.38.262.431 I slot launch_slot_: id  0 | task 263 | processing task, is_child = 0
+0.38.262.443 I slot   operator(): id  0 | task 263 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.38.262.445 I slot   operator(): id  0 | task 263 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.38.574.246 I slot      release: id  0 | task 263 | stop processing: n_tokens = 520, truncated = 0
+0.38.574.265 I srv  update_slots: all slots are idle
+0.38.575.947 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.38.575.952 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.38.575.957 I slot launch_slot_: id  0 | task 267 | processing task, is_child = 0
+0.38.575.959 I slot get_availabl: id  0 | task 267 |  - skipping, is_processing = 1
+0.38.575.962 I slot get_availabl: id  0 | task 267 |  - skipping, is_processing = 1
+0.38.575.969 I slot   operator(): id  0 | task 267 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.38.575.971 I slot   operator(): id  0 | task 267 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.38.863.374 I slot      release: id  0 | task 267 | stop processing: n_tokens = 509, truncated = 0
+0.38.863.401 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.38.863.404 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.38.863.409 I slot launch_slot_: id  0 | task 268 | processing task, is_child = 0
+0.38.863.422 I slot   operator(): id  0 | task 268 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.38.863.424 I slot   operator(): id  0 | task 268 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.39.177.053 I slot      release: id  0 | task 268 | stop processing: n_tokens = 530, truncated = 0
+0.39.177.079 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.39.177.081 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.39.177.086 I slot launch_slot_: id  0 | task 269 | processing task, is_child = 0
+0.39.177.098 I slot   operator(): id  0 | task 269 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.39.177.100 I slot   operator(): id  0 | task 269 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.39.487.560 I slot      release: id  0 | task 269 | stop processing: n_tokens = 520, truncated = 0
+0.39.487.581 I srv  update_slots: all slots are idle
+0.39.489.298 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.957 (487/509) > 0.100
+0.39.489.303 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.957 (> 0.100 thold), f_keep = 0.937
+0.39.489.307 I slot launch_slot_: id  0 | task 273 | processing task, is_child = 0
+0.39.489.309 I slot get_availabl: id  0 | task 273 |  - skipping, is_processing = 1
+0.39.489.312 I slot get_availabl: id  0 | task 273 |  - skipping, is_processing = 1
+0.39.489.319 I slot   operator(): id  0 | task 273 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 509
+0.39.489.321 I slot   operator(): id  0 | task 273 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.39.785.324 I slot      release: id  0 | task 273 | stop processing: n_tokens = 509, truncated = 0
+0.39.785.351 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.919 (487/530) > 0.100
+0.39.785.352 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.919 (> 0.100 thold), f_keep = 0.957
+0.39.785.357 I slot launch_slot_: id  0 | task 274 | processing task, is_child = 0
+0.39.785.369 I slot   operator(): id  0 | task 274 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 530
+0.39.785.371 I slot   operator(): id  0 | task 274 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.40.101.402 I slot      release: id  0 | task 274 | stop processing: n_tokens = 530, truncated = 0
+0.40.101.447 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.937 (487/520) > 0.100
+0.40.101.454 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.937 (> 0.100 thold), f_keep = 0.919
+0.40.101.462 I slot launch_slot_: id  0 | task 275 | processing task, is_child = 0
+0.40.101.486 I slot   operator(): id  0 | task 275 | new prompt, n_ctx_slot = 2048, n_keep = 0, task.n_tokens = 520
+0.40.101.494 I slot   operator(): id  0 | task 275 | cached n_tokens = 0, memory_seq_rm [0, end)
+0.40.414.101 I slot      release: id  0 | task 275 | stop processing: n_tokens = 520, truncated = 0
+0.40.414.138 I srv  update_slots: all slots are idle
+0.40.468.243 I srv  update_slots: all slots are idle
+2.28.257.655 I srv    operator(): operator(): cleaning up before exit...

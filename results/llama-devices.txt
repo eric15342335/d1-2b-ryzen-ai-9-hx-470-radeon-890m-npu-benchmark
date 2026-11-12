@@ -1,0 +1,3 @@
+Available devices:
+  Vulkan0: AMD Radeon(TM) 890M Graphics (16460 MiB, 15637 MiB free)
+  Vulkan1: NVIDIA GeForce RTX 5060 Laptop GPU (7898 MiB, 7130 MiB free)
