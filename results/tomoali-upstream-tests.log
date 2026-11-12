@@ -1,0 +1,9 @@
+test_external_weight_change_alters_fingerprint (test_runtime.RuntimeTests.test_external_weight_change_alters_fingerprint) ... ok
+test_incomplete_context_never_gets_completion_marker (test_runtime.RuntimeTests.test_incomplete_context_never_gets_completion_marker) ... ok
+test_missing_image_is_rejected_before_native_model_load (test_runtime.RuntimeTests.test_missing_image_is_rejected_before_native_model_load) ... ok
+test_question_validation_and_threshold (test_runtime.RuntimeTests.test_question_validation_and_threshold) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.041s
+
+OK

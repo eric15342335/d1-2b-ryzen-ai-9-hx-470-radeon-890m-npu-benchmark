@@ -1,0 +1,283 @@
+{
+  "backend": "tomoali-ryzen-ai-npu",
+  "model_id": "Tomoali/d1-2B-ryzen-ai-npu",
+  "model_revision": "04c583fcf56ecfaa6d387d03aa8330c896b27f7c",
+  "runtime_revision": "e94cf1b50db06eac3aa388c7e55f7610bb27c446",
+  "manifest_sha256": "af93280c7444698268eda4d29b6d280771ae85fdb0355e3704a56f7d087d1564",
+  "runtime_version": "0.1.0",
+  "onnxruntime_version": "1.31.1",
+  "hardware": [
+    {
+      "provider": "RyzenAILightExecutionProvider",
+      "type": "OrtHardwareDeviceType.NPU",
+      "vendor": "AMD",
+      "vendor_id": 4130,
+      "device_id": 6128,
+      "metadata": {
+        "Description": "NPU Compute Accelerator Device",
+        "LUID": "87865"
+      }
+    }
+  ],
+  "threads": 4,
+  "context_length": 4096,
+  "question_count": 3,
+  "fixture": ".\\fixtures\\ticket-common.json",
+  "fixture_sha256": "142b7e5392b3632878fa16f81bf4cb99a21d16b5d23879fe7d7c7d87fe6231fc",
+  "load_seconds": 1.208345799999961,
+  "profile": false,
+  "warmup": 3,
+  "repeats": 20,
+  "workloads": [
+    {
+      "name": "short",
+      "state": "I was charged twice and my parcel never arrived. Please refund one charge.",
+      "first_ms": 1449.5120999999926,
+      "first_forward_ms": [
+        1437.0217000000594
+      ],
+      "packed_tokens": [
+        123
+      ],
+      "output": {
+        "refund": {
+          "type": "noul",
+          "noul": 0.9965912708223333,
+          "decision": true
+        },
+        "team": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.7220550817696479,
+            "shipping": 0.23521992944875256,
+            "technical": 0.04272498878159956
+          }
+        },
+        "urgency": {
+          "type": "score",
+          "score": 1.0080738048319977,
+          "probabilities": {
+            "0": 0.16876084447574985,
+            "1": 0.6544045062165025,
+            "2": 0.17683464930774764
+          }
+        }
+      },
+      "timings_ms": [
+        151.71200000008866,
+        151.82149999986905,
+        158.25199999994766,
+        155.48249999983454,
+        155.9109999998327,
+        160.57840000007673,
+        159.97889999994186,
+        159.12460000004103,
+        154.64780000002065,
+        155.04550000014206,
+        156.8300999999792,
+        158.47499999995307,
+        160.69719999995868,
+        158.94270000012511,
+        151.93090000002485,
+        153.130899999951,
+        155.31949999990502,
+        152.04749999998057,
+        159.04360000013185,
+        161.86039999979585
+      ],
+      "forward_timings_ms": [
+        [
+          150.02159999994547
+        ],
+        [
+          149.8254000000543
+        ],
+        [
+          156.56049999984134
+        ],
+        [
+          153.63619999993716
+        ],
+        [
+          154.23420000001897
+        ],
+        [
+          158.8035999998283
+        ],
+        [
+          157.97059999999874
+        ],
+        [
+          157.31399999981477
+        ],
+        [
+          152.3196000000553
+        ],
+        [
+          153.37449999992714
+        ],
+        [
+          155.09350000002087
+        ],
+        [
+          156.73040000001492
+        ],
+        [
+          159.0360000000146
+        ],
+        [
+          156.70000000000073
+        ],
+        [
+          150.22270000008575
+        ],
+        [
+          151.15700000001198
+        ],
+        [
+          153.5508999998001
+        ],
+        [
+          150.1521000000139
+        ],
+        [
+          156.4507999999023
+        ],
+        [
+          160.17660000011347
+        ]
+      ],
+      "mean_ms": 156.54159999998,
+      "median_ms": 156.37054999990596,
+      "p95_ms": 160.69719999995868,
+      "states_per_second": 6.3880783127304674,
+      "questions_per_second": 19.164234938191402
+    },
+    {
+      "name": "state-times-32",
+      "state": "I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. ",
+      "first_ms": 721.1056999999528,
+      "first_forward_ms": [
+        718.6748999999963
+      ],
+      "packed_tokens": [
+        589
+      ],
+      "output": {
+        "refund": {
+          "type": "noul",
+          "noul": 0.9978611084735171,
+          "decision": true
+        },
+        "team": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.6648036109493886,
+            "shipping": 0.31474769673403785,
+            "technical": 0.02044869231657362
+          }
+        },
+        "urgency": {
+          "type": "score",
+          "score": 0.8485371291217247,
+          "probabilities": {
+            "0": 0.3528611317438159,
+            "1": 0.44574060739064364,
+            "2": 0.20139826086554055
+          }
+        }
+      },
+      "timings_ms": [
+        700.4612999999154,
+        745.9201000001485,
+        749.2514000000483,
+        760.9683999999106,
+        762.3866999999791,
+        696.516900000006,
+        723.5504000000219,
+        757.1350000000621,
+        700.1476000000366,
+        682.5440000000071,
+        718.0688999999347,
+        697.054499999922,
+        729.5916000000489,
+        699.4918999998845,
+        683.2154999999602,
+        701.2624999999844,
+        687.3222000001533,
+        688.2029999999304,
+        688.9861000001929,
+        686.8215999998029
+      ],
+      "forward_timings_ms": [
+        [
+          698.3268999999837
+        ],
+        [
+          743.8224999998511
+        ],
+        [
+          746.9282999998086
+        ],
+        [
+          758.495099999891
+        ],
+        [
+          760.2842999999666
+        ],
+        [
+          694.4008000000395
+        ],
+        [
+          720.9340999997949
+        ],
+        [
+          754.8927999998796
+        ],
+        [
+          697.9876999998851
+        ],
+        [
+          680.4741999999351
+        ],
+        [
+          715.9409999999298
+        ],
+        [
+          694.8809000000438
+        ],
+        [
+          727.2723000000951
+        ],
+        [
+          697.1588999999767
+        ],
+        [
+          681.0877000000346
+        ],
+        [
+          698.1306000000131
+        ],
+        [
+          684.9417000000813
+        ],
+        [
+          685.5794000000515
+        ],
+        [
+          686.7373999998563
+        ],
+        [
+          684.4619999999395
+        ]
+      ],
+      "mean_ms": 712.9449799999975,
+      "median_ms": 700.304449999976,
+      "p95_ms": 760.9683999999106,
+      "states_per_second": 1.4026327810036667,
+      "questions_per_second": 4.207898343011
+    }
+  ]
+}

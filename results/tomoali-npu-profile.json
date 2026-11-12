@@ -1,0 +1,152 @@
+{
+  "backend": "tomoali-ryzen-ai-npu",
+  "model_id": "Tomoali/d1-2B-ryzen-ai-npu",
+  "model_revision": "04c583fcf56ecfaa6d387d03aa8330c896b27f7c",
+  "runtime_revision": "e94cf1b50db06eac3aa388c7e55f7610bb27c446",
+  "manifest_sha256": "af93280c7444698268eda4d29b6d280771ae85fdb0355e3704a56f7d087d1564",
+  "runtime_version": "0.1.0",
+  "onnxruntime_version": "1.31.1",
+  "hardware": [
+    {
+      "provider": "RyzenAILightExecutionProvider",
+      "type": "OrtHardwareDeviceType.NPU",
+      "vendor": "AMD",
+      "vendor_id": 4130,
+      "device_id": 6128,
+      "metadata": {
+        "Description": "NPU Compute Accelerator Device",
+        "LUID": "87865"
+      }
+    }
+  ],
+  "threads": 4,
+  "context_length": 4096,
+  "question_count": 3,
+  "fixture": ".\\fixtures\\ticket-common.json",
+  "fixture_sha256": "142b7e5392b3632878fa16f81bf4cb99a21d16b5d23879fe7d7c7d87fe6231fc",
+  "load_seconds": 3.943795200000068,
+  "profile": true,
+  "warmup": 3,
+  "repeats": 20,
+  "workloads": [
+    {
+      "name": "short",
+      "state": "I was charged twice and my parcel never arrived. Please refund one charge.",
+      "first_ms": 2364.3114999999852,
+      "first_forward_ms": [
+        2290.630399999827
+      ],
+      "packed_tokens": [
+        123
+      ],
+      "output": {
+        "refund": {
+          "type": "noul",
+          "noul": 0.9965912708223333,
+          "decision": true
+        },
+        "team": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.7220550817696479,
+            "shipping": 0.23521992944875256,
+            "technical": 0.04272498878159956
+          }
+        },
+        "urgency": {
+          "type": "score",
+          "score": 1.0080738048319977,
+          "probabilities": {
+            "0": 0.16876084447574985,
+            "1": 0.6544045062165025,
+            "2": 0.17683464930774764
+          }
+        }
+      }
+    },
+    {
+      "name": "state-times-32",
+      "state": "I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. I was charged twice and my parcel never arrived. Please refund one charge. ",
+      "first_ms": 960.8049999999366,
+      "first_forward_ms": [
+        956.233599999905
+      ],
+      "packed_tokens": [
+        589
+      ],
+      "output": {
+        "refund": {
+          "type": "noul",
+          "noul": 0.9978611084735171,
+          "decision": true
+        },
+        "team": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "billing": 0.6648036109493886,
+            "shipping": 0.31474769673403785,
+            "technical": 0.02044869231657362
+          }
+        },
+        "urgency": {
+          "type": "score",
+          "score": 0.8485371291217247,
+          "probabilities": {
+            "0": 0.3528611317438159,
+            "1": 0.44574060739064364,
+            "2": 0.20139826086554055
+          }
+        }
+      }
+    }
+  ],
+  "profiles": {
+    "language": {
+      "path": ".\\results\\tomoali-npu-profiles\\language_2026-11-13_01-59-13_914.json",
+      "events": {
+        "CPUExecutionProvider": 1220,
+        "RyzenAILightExecutionProvider": 766
+      },
+      "operators": {
+        "CPUExecutionProvider::Reshape": 214,
+        "CPUExecutionProvider::Equal": 10,
+        "CPUExecutionProvider::NonZero": 4,
+        "CPUExecutionProvider::Transpose": 82,
+        "CPUExecutionProvider::Shape": 38,
+        "CPUExecutionProvider::Slice": 30,
+        "CPUExecutionProvider::GatherBlockQuantized": 2,
+        "CPUExecutionProvider::ScatterND": 4,
+        "CPUExecutionProvider::SimplifiedLayerNormalization": 238,
+        "RyzenAILightExecutionProvider::CastAvx": 480,
+        "RyzenAILightExecutionProvider::MatMulNBitsBf": 286,
+        "CPUExecutionProvider::Split": 26,
+        "CPUExecutionProvider::Mul": 148,
+        "CPUExecutionProvider::Concat": 30,
+        "CPUExecutionProvider::Expand": 28,
+        "CPUExecutionProvider::Conv": 26,
+        "CPUExecutionProvider::Gather": 30,
+        "CPUExecutionProvider::Unsqueeze": 36,
+        "CPUExecutionProvider::Add": 96,
+        "CPUExecutionProvider::QuickGelu": 48,
+        "CPUExecutionProvider::RotaryEmbedding": 44,
+        "CPUExecutionProvider::Or": 4,
+        "CPUExecutionProvider::Cast": 6,
+        "CPUExecutionProvider::And": 2,
+        "CPUExecutionProvider::Where": 2,
+        "CPUExecutionProvider::MultiHeadAttention": 12,
+        "CPUExecutionProvider::MatMul": 22,
+        "CPUExecutionProvider::Sigmoid": 22,
+        "CPUExecutionProvider::ReduceSum": 2,
+        "CPUExecutionProvider::Sub": 2,
+        "CPUExecutionProvider::GroupQueryAttention": 10,
+        "CPUExecutionProvider::Squeeze": 2
+      },
+      "npu_projection_events": {
+        "actual": 286,
+        "expected": 286
+      }
+    }
+  }
+}
